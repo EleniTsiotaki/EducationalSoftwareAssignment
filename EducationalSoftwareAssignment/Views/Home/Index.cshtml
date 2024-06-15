@@ -1,8 +1,31 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Αρχική";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron text-center" style="padding-bottom:20px">
+    <h1 class="display-4">Καλωσήρθατε στο JavaCoders</h1>
+    <p class="lead">Μάθετε Java με διαδραστικά μαθήματα και ασκήσεις.</p>
+    <hr class="my-4">
+    <p>Ξεκινήστε την εκμάθησή σας τώρα.</p>
+    <a class="btn btn-primary btn-lg" href="/Home/Modules" role="button">Ξεκινήστε</a>
+</div>
+
+<div class="container" style="padding-bottom:100px">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Εισαγωγή στη Java</h2>
+            <p>Μάθετε τις βασικές έννοιες της Java και γιατί είναι τόσο δημοφιλής.</p>
+            <a class="btn btn-secondary" href="/Home/Introduction" role="button">Μάθετε περισσότερα</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Βασικές Έννοιες</h2>
+            <p>Εξερευνήστε τις βασικές έννοιες προγραμματισμού στη Java όπως μεταβλητές, τύποι δεδομένων, και συναρτήσεις.</p>
+            <a class="btn btn-secondary" href="/Home/BasicConcepts" role="button">Μάθετε περισσότερα</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Προχωρημένες Τεχνικές</h2>
+            <p>Ανακαλύψτε πιο σύνθετες τεχνικές όπως ασύγχρονες λειτουργίες, αντικείμενα και χειραγώγηση του DOM.</p>
+            <a class="btn btn-secondary" href="/Home/AdvancedTechniques" role="button">Μάθετε περισσότερα</a>
+        </div>
+    </div>
 </div>
