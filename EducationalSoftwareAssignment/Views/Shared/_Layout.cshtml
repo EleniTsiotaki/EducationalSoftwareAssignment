@@ -10,7 +10,7 @@
 <body>
     <!-- Top Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">JavaCoders</a>
+        <a class="navbar-brand" style="margin-left:10px; color:cornflowerblue" href="/Home">JavaCoders</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,9 +30,26 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto" style="margin-left: 600px;">
-                <li class="nav-item">
-                    <a class="btn btn-success" href="#login" style="background-color: darkslategrey; color: whitesmoke;  padding: 3px 5px;">Login/Sign Up</a>
-                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item" style="margin-right:20px; margin-top:5px;">
+                        <a class="nav-link" style="color: cornflowerblue; border: 1px solid cornflowerblue; padding: 5px;"> @User.Identity.Name </a>
+                    </li>
+                    <li class="nav-item">
+                        <form asp-area="Identity" asp-page="/Account/Logout" method="post" id="logoutForm" class="form-inline">
+                            <button type="submit" class="nav-link btn btn-link">Logout</button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-success" style="background-color: darkslategrey; color: whitesmoke; padding: 3px 5px; margin-right:10px; margin-top:5px;">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-success" style="background-color: darkslategrey; color: whitesmoke; padding: 3px 5px; margin-top:5px;">Sign Up</a>
+                    </li>
+                }
             </ul>
         </div>
     </nav>
@@ -44,6 +61,7 @@
             <span class="text-muted">© 2024 JavaCoders. All rights reserved.</span>
         </div>
     </footer>
+    @RenderSection("Scripts", required: false)
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js"></script>
