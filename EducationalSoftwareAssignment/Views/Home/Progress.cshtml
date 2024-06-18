@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Progress";
+}
+<head> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+    <style>
+        .profile-header {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+            .profile-header img {
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+            }
+
+        .profile-info {
+            padding: 2rem;
+        }
+
+            .profile-info div {
+                margin-bottom: 1rem;
+            }
+
+            .profile-info label {
+            color: #888;
+                font-size: 0.9rem;
+            }
+
+            .profile-info .value {
+                font-size: 1.1rem;
+            color: #888;
+            }
+    </style>
+
+<body class="bg-dark text-white">
+
+    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;"> @ViewData["Title"]</header>
+        <div class="container mt-5">
+            <div class="card">
+                <div class="profile-header">
+                   
+                    <h2>Sofia</h2>
+                    <p>Profile</p>
+                </div>
+                <div class="profile-info">
+                    <div>
+                        <label>EMAIL</label>
+                        <div class="value">sofiarafailidi@gmail.com</div>
+                    </div>
+                    <div>
+                        <label>LEVEL</label>
+                        <div class="value">Beginner</div>
+                    </div>
+                    <div>
+                        <label>COURSES</label>
+                        <div class="value">1</div>
+                    </div>
+                    <div>
+                        <label>GRADE</label>
+                        <div class="value">2.5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</body>
