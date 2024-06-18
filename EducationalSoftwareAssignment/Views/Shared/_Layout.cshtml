@@ -26,8 +26,6 @@
 </style>
 <body>
     <!-- Top Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" style="margin-left:10px; color:cornflowerblue" href="/Home">JavaCoders</a>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="margin-left:1%; margin-right:1%">
         <a class="navbar-brand" href="/Home/Index" style="color:#fff4e6;">JavaCoders</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +46,7 @@
                     <a class="nav-link" href="#progress">Progress <i class="arrow down"></i></a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto" style="margin-left: 600px;">
+            <ul class="navbar-nav ml-auto" style="margin-left: auto;">
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="nav-item" style="margin-right:20px; margin-top:5px;">
@@ -69,11 +67,6 @@
                         <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-success" style="background-color: darkslategrey; color: whitesmoke; padding: 3px 5px; margin-top:5px;">Sign Up</a>
                     </li>
                 }
-            <ul class="navbar-nav ml-auto" style="margin-left: auto;">
-                <li class="nav-item">
-                    <a class="btn btn-success" href="#login" style="background-color: darkslategrey; color: whitesmoke;  padding: 3px 5px;">Login/Sign Up</a>
-                </li>
-            </ul>
         </div>
     </nav>
     <div class="container">
