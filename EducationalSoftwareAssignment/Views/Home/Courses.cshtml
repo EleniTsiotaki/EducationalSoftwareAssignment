@@ -1,0 +1,292 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyProject</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+
+
+<style>
+    
+
+    /* Style the buttons inside the tab */
+        .tab button {
+            overflow: hidden;
+        background-color: #fff4e6;
+        border-color: black;
+        opacity: 1;
+            border-radius: 10px;
+            padding: 50px 50px;
+            font-size: 30px;
+            cursor: pointer;
+        color: #0B3C32;
+            position: relative;
+            float: left;
+            outline: none;
+            transition: 0.3s;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+            background-color: #fff4e6;
+            opacity: 0.8;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+            background-color: #B0B0B2;
+            opacity: 1;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+
+    .course-container{
+        width: 100%;
+        margin: 0 auto; 
+        
+    }
+
+    .course-details {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        background-color: #fff4e6;
+        padding: 20px;
+        border: 1px solid grey;
+        border-style: dotted;
+    }
+
+    .detail-item {
+        margin: 1%;
+        display: flex;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        text-align:center;
+    }
+
+        .detail-item i {
+            font-size: 24px;
+            margin-right: 20px;
+            color: grey;
+        }
+
+    .detail-title {
+        display: block;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .detail-value {
+        display: block;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }   
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        width: 100%;
+        margin: 0 auto;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+    .dropdown a:hover {
+        background-color: #ddd;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .dropdown-content .show{
+        display: block;
+        margin-top: 0.5rem;
+    }
+
+</style>
+
+
+
+<body class="bg-dark text-white">
+
+    <header style="margin-top:8%; text-align: center; font-size: 35px; color: white;"> @ViewData["Title"]</header>
+    <div class="tab" style="overflow: hidden;">
+        <button onclick="openCity(event, 'London')">Beginner</button>
+        <button onclick="openCity(event, 'Paris')">Advanced</button>
+    </div>
+
+    <div class="course-container">
+        <div class="course-details">
+            <div class="detail-item">
+                <i class="fas fa-chart-bar"></i>
+                <div>
+                    <span class="detail-title">Skill level</span>
+                    <span class="detail-value">Beginner</span>
+                </div>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <span class="detail-title">Time to complete</span>
+                    <span class="detail-value">10 hours</span>
+                </div>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <span class="detail-title">Certificate of completion</span>
+                    <span class="detail-value">Level A</span>
+                </div>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-tasks"></i>
+                <div>
+                    <span class="detail-title">Prerequisites</span>
+                    <span class="detail-value">None</span>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown mb-3 w-100" >
+            <button class="btn btn-secondary dropdown-toggle w-100" onclick="myFunction()" type="button">
+                Select a Course
+            </button>
+            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" id="myDropdown1">
+                <a class="dropdown-item" href="#">Course 1</a>
+                <a class="dropdown-item" href="#">Course 2</a>
+                <a class="dropdown-item" href="#">Course 3</a>
+                <a class="dropdown-item" href="#">Course 4</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="course-container">
+        <div class="course-details">
+            <div class="detail-item" >
+                <i class="fas fa-chart-bar"></i>
+                <div>
+                    <span class="detail-title">Skill level</span>
+                    <span class="detail-value">Advanced</span>
+                </div>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <span class="detail-title">Time to complete</span>
+                    <span class="detail-value">16 hours</span>
+                </div>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <span class="detail-title">Certificate of completion</span>
+                    <span class="detail-value">Level B</span>
+                </div>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-tasks"></i>
+                <div>
+                    <span class="detail-title">Prerequisites</span>
+                    <span class="detail-value">Level A</span>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown mb-3 w-100">
+            <button class="btn btn-secondary dropdown-toggle w-100" onclick="myFunction2()" type="button">
+                Select a Course
+            </button>
+            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" id="myDropdown2">
+                <a class="dropdown-item" href="#">Course 1</a>
+                <a class="dropdown-item" href="#">Course 2</a>
+                <a class="dropdown-item" href="#">Course 3</a>
+                <a class="dropdown-item" href="#">Course 4</a>
+            </div>
+        </div>
+    </div>  
+
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown1").classList.toggle("show");
+
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn1')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content1");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        function myFunction2() {
+            document.getElementById("myDropdown2").classList.toggle("show");
+
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn2')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content2");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>

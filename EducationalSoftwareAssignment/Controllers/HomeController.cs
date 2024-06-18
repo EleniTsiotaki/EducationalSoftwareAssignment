@@ -9,7 +9,7 @@ namespace LearnJava.Controllers
             return View();
         }
 
-        public IActionResult Modules()
+        public IActionResult Courses()
         {
             return View();
         }
@@ -35,6 +35,11 @@ namespace LearnJava.Controllers
         }
 
         public IActionResult AdvancedTechniques()
+        {
+            return View();
+        }
+
+        public IActionResult Exercises()
         {
             return View();
         }
