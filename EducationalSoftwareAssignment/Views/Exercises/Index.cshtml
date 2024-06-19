@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Exercises";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .container {
+            padding-top: 20px;
+            padding-bottom: 100px;
+            margin-top: 20px
+        }
+
+        .exercise {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #fff4e6;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .exercise h2 {
+            color: black;
+        }
+
+        .exercise p {
+            color: #555;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+    </style>
+</head>
+<body class="bg-dark text-white vsc-initialized">
+    <div class="container">
+        <h1 class="text-center">@ViewData["Title"]</h1>
+
+        <div class="exercise">
+            <h2>Exercise 1: Introduction to Variables</h2>
+            <p>In this exercise, you will learn about declaring and using variables in Java.</p>
+            <a class="btn btn-primary" href="/Exercises/Exercise1">Start Exercise</a>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercise 2: Control Structures</h2>
+            <p>Explore Java's control structures including if-else statements and loops.</p>
+            <a class="btn btn-primary" href="/Exercises/Exercise2">Start Exercise</a>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercise 3: Object-Oriented Programming</h2>
+            <p>Learn the fundamentals of object-oriented programming (OOP) in Java.</p>
+            <a class="btn btn-primary" href="/Exercises/Exercise3">Start Exercise</a>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercise 4: File Handling</h2>
+            <p>Learn how to handle files using write / create / read / delete operations</p>
+            <a class="btn btn-primary" href="/Exercises/Exercise4">Start Exercise</a>
+        </div>
+    </div>
+
+
+</body>
+</html>
