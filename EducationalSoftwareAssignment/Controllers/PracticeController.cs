@@ -2,7 +2,7 @@
 
 namespace EducationalSoftwareAssignment.Controllers
 {
-    public class ExercisesController : Controller
+    public class PracticeController : Controller
     {
         public IActionResult Index()
         {
