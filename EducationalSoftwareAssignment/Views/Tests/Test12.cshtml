@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Test 1";
+    ViewData["Title"] = "Test 2";
 }
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
         <div id="timer">Time: <span id="time-elapsed">0:00</span></div>
         <form id="quizForm" class="mt-5">
             <div class="form-group">
-                <p>1. Java is a statically-typed programming language.</p>
+                <p>1. The switch statement can evaluate both integer and string expressions.</p>
                 <div class="custom-control custom-radio">
                     <input type="radio" class="custom-control-input" name="question1" value="True">
                     <label class="custom-control-label">True</label>
@@ -41,77 +41,71 @@
                     <label class="custom-control-label">False</label>
                 </div>
 
-                <p>2. Multiple Choice: Which of the following is a valid variable declaration in Java?</p>
+                <p>
+                    2. What will be the output of the following code?
+
+                    int i = 0;
+                    while (i < 5) {
+                    System.out.println(i);
+                    i++;
+                    }
+
+                </p>
                 <div class="custom-control custom-radio ">
-                    <input type="radio" class="custom-control-input" name="question2" value="int 1num;">
-                    <label class="custom-control-label">int 1num;</label>
+                    <input type="radio" class="custom-control-input" name="question2" value="1 2 3 4 5">
+                    <label class="custom-control-label">1 2 3 4 5</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="int num1;">
-                    <label class="custom-control-label">int num1;</label>
+                    <input type="radio" class="custom-control-input" name="question2" value="0 1 2 3 4">
+                    <label class="custom-control-label">0 1 2 3 4</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="int #num;">
-                    <label class="custom-control-label">int #num;</label>
+                    <input type="radio" class="custom-control-input" name="question2" value="0 1 2 3 4 5">
+                    <label class="custom-control-label">0 1 2 3 4 5</label>
                 </div>
                 <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question2" value="int num-1;">
-                    <label class="custom-control-label">int num-1;</label>
+                    <input type="radio" class="custom-control-input" name="question2" value="1 2 3 4">
+                    <label class="custom-control-label">1 2 3 4</label>
                 </div>
 
-                <p>3. What is the size of int in Java?</p>
+                <p>3. The break statement can be used to exit from a loop prematurely.</p>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="8-bit">
-                    <label class="custom-control-label">8-bit</label>
+                    <input type="radio" class="custom-control-input" name="question3" value="True">
+                    <label class="custom-control-label">True</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="16-bit">
-                    <label class="custom-control-label">16-bit</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="32-bit">
-                    <label class="custom-control-label">32-bit</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question3" value="64-bit">
-                    <label class="custom-control-label">64-bit</label>
+                    <input type="radio" class="custom-control-input" name="question3" value="False">
+                    <label class="custom-control-label">False</label>
                 </div>
 
-                <p>4. Multiple Choice: Which of the following is a valid comment in Java?</p>
+                <p>
+                    4. What will be the output of the following code?
+
+                    for (int i = 0; i < 3; i++) {
+                    if (i == 1) {
+                    continue;
+                    }
+                    System.out.print(i);
+                    }
+
+                </p>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="/* This is a comment */">
-                    <label class="custom-control-label">/* This is a comment */</label>
+                    <input type="radio" class="custom-control-input" name="question4" value="012">
+                    <label class="custom-control-label">012</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="** This is a comment **">
-                    <label class="custom-control-label">** This is a comment **</label>
+                    <input type="radio" class="custom-control-input" name="question4" value="02">
+                    <label class="custom-control-label">02</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="// This is a comment">
-                    <label class="custom-control-label">// This is a comment</label>
+                    <input type="radio" class="custom-control-input" name="question4" value="01">
+                    <label class="custom-control-label">01</label>
                 </div>
                 <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question4" value="Both A and C">
-                    <label class="custom-control-label">Both A and C</label>
+                    <input type="radio" class="custom-control-input" name="question4" value="23">
+                    <label class="custom-control-label">23</label>
                 </div>
 
-                <p>5. Multiple Choice: What will be the output of the following code? System.out.println("Hello, World!");</p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question5" value="Hello World">
-                    <label class="custom-control-label">Hello World</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question5" value='"Hello, World!"'>
-                    <label class="custom-control-label">"Hello, World!"</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question5" value="Hello, World!">
-                    <label class="custom-control-label">Hello, World!</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question5" value="Hello, World!">
-                    <label class="custom-control-label">'Hello, World!'</label>
-                </div>
             </div>
             <br />
             <button id="grade-quiz-btn" type="button" class="btn btn-success" style="display:none;" onclick="gradeQuiz()">Grade Quiz</button>
@@ -154,10 +148,9 @@
 
             const correctAnswers = {
                 question1: "True",
-                question2: "int num1;",
-                question3: "32-bit",
-                question4: "Both A and C",
-                question5: "Hello, World!"
+                question2: "0 1 2 3 4",
+                question3: "True",
+                question4: "02",
             };
 
             const form = document.getElementById('quizForm');
@@ -173,10 +166,10 @@
                 }
             }
 
-            // Save elapsed time and score to the database
-            // access the test_id
-            if (all_correct == true) {
-                const testId = 1;
+            // Save elapsed time and score to the database 
+            // access the test_id 
+            if (all_correct==true) {
+                const testId = 2;
                 const score = 2.5;
                 const response = await fetch('/Tests/PostTestResult', {
                     method: 'POST',
@@ -195,7 +188,7 @@
             else {
                 alert('Not all answers are correct. The quiz result will not be saved.');
             }
-
+            
         }
     </script>
 </body>

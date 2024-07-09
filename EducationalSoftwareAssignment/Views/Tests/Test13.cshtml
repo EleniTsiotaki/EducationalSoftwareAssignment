@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Test 1";
+    ViewData["Title"] = "Test 3";
 }
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
         <div id="timer">Time: <span id="time-elapsed">0:00</span></div>
         <form id="quizForm" class="mt-5">
             <div class="form-group">
-                <p>1. Java is a statically-typed programming language.</p>
+                <p>1. A constructor has the same name as the class and does not have a return type.</p>
                 <div class="custom-control custom-radio">
                     <input type="radio" class="custom-control-input" name="question1" value="True">
                     <label class="custom-control-label">True</label>
@@ -41,77 +41,83 @@
                     <label class="custom-control-label">False</label>
                 </div>
 
-                <p>2. Multiple Choice: Which of the following is a valid variable declaration in Java?</p>
+                <p>2. Multiple Choice: Which of the following keywords is used to create an object in Java?</p>
                 <div class="custom-control custom-radio ">
-                    <input type="radio" class="custom-control-input" name="question2" value="int 1num;">
-                    <label class="custom-control-label">int 1num;</label>
+                    <input type="radio" class="custom-control-input" name="question2" value="class">
+                    <label class="custom-control-label">class</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="int num1;">
-                    <label class="custom-control-label">int num1;</label>
+                    <input type="radio" class="custom-control-input" name="question2" value="new">
+                    <label class="custom-control-label">new</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="int #num;">
-                    <label class="custom-control-label">int #num;</label>
+                    <input type="radio" class="custom-control-input" name="question2" value="object">
+                    <label class="custom-control-label">object</label>
                 </div>
                 <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question2" value="int num-1;">
-                    <label class="custom-control-label">int num-1;</label>
+                    <input type="radio" class="custom-control-input" name="question2" value="create">
+                    <label class="custom-control-label">create</label>
                 </div>
 
-                <p>3. What is the size of int in Java?</p>
+                <p>3. Multiple Choice: What will be the output of the following code?
+                    class Animal {
+                        String name;
+                        Animal(String n) {
+                            name = n;
+                        }
+                    }
+                    public class Test {
+                        public static void main(String[] args) {
+                            Animal dog = new Animal("Buddy");
+                            System.out.println(dog.name);
+                        }
+                    }
+                </p>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="8-bit">
-                    <label class="custom-control-label">8-bit</label>
+                    <input type="radio" class="custom-control-input" name="question3" value="null">
+                    <label class="custom-control-label">null</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="16-bit">
-                    <label class="custom-control-label">16-bit</label>
+                    <input type="radio" class="custom-control-input" name="question3" value="Buddy">
+                    <label class="custom-control-label">Buddy</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="32-bit">
-                    <label class="custom-control-label">32-bit</label>
+                    <input type="radio" class="custom-control-input" name="question3" value="Error">
+                    <label class="custom-control-label">Error</label>
                 </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question3" value="64-bit">
-                    <label class="custom-control-label">64-bit</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="question3" value="Animal">
+                    <label class="custom-control-label">Animal</label>
                 </div>
 
-                <p>4. Multiple Choice: Which of the following is a valid comment in Java?</p>
+                <p>4. True/False: A method can be overloaded by changing the return type alone.</p>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="/* This is a comment */">
-                    <label class="custom-control-label">/* This is a comment */</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="** This is a comment **">
-                    <label class="custom-control-label">** This is a comment **</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="// This is a comment">
-                    <label class="custom-control-label">// This is a comment</label>
+                    <input type="radio" class="custom-control-input" name="question4" value="True">
+                    <label class="custom-control-label">True</label>
                 </div>
                 <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question4" value="Both A and C">
-                    <label class="custom-control-label">Both A and C</label>
+                    <input type="radio" class="custom-control-input" name="question4" value="False">
+                    <label class="custom-control-label">False</label>
                 </div>
 
-                <p>5. Multiple Choice: What will be the output of the following code? System.out.println("Hello, World!");</p>
+                <p>Multiple Choice: Which of the following statements about constructors is true?</p>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question5" value="Hello World">
-                    <label class="custom-control-label">Hello World</label>
+                    <input type="radio" class="custom-control-input" name="question5" value="A class can have only one constructor.">
+                    <label class="custom-control-label">A class can have only one constructor.</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question5" value='"Hello, World!"'>
-                    <label class="custom-control-label">"Hello, World!"</label>
+                    <input type="radio" class="custom-control-input" name="question5" value="Constructors can have different names as long as they are unique.">
+                    <label class="custom-control-label">Constructors can have different names as long as they are unique. </label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question5" value="Hello, World!">
-                    <label class="custom-control-label">Hello, World!</label>
+                    <input type="radio" class="custom-control-input" name="question5" value="Constructors are called when an object is created.">
+                    <label class="custom-control-label">Constructors are called when an object is created.</label>
                 </div>
                 <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question5" value="Hello, World!">
-                    <label class="custom-control-label">'Hello, World!'</label>
+                    <input type="radio" class="custom-control-input" name="question5" value="Constructors cannot take parameters.">
+                    <label class="custom-control-label">Constructors cannot take parameters.</label>
                 </div>
+
             </div>
             <br />
             <button id="grade-quiz-btn" type="button" class="btn btn-success" style="display:none;" onclick="gradeQuiz()">Grade Quiz</button>
@@ -154,10 +160,10 @@
 
             const correctAnswers = {
                 question1: "True",
-                question2: "int num1;",
-                question3: "32-bit",
-                question4: "Both A and C",
-                question5: "Hello, World!"
+                question2: "new",
+                question3: "Buddy",
+                question4: "False",
+                question5: "Constructors are called when an object is created."
             };
 
             const form = document.getElementById('quizForm');
@@ -176,7 +182,7 @@
             // Save elapsed time and score to the database
             // access the test_id
             if (all_correct == true) {
-                const testId = 1;
+                const testId = 3;
                 const score = 2.5;
                 const response = await fetch('/Tests/PostTestResult', {
                     method: 'POST',

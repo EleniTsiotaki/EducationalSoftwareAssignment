@@ -3,6 +3,7 @@ using System;
 using EducationalSoftwareAssignment.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EducationalSoftwareAssignment.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240709182828_CreateTestsAndStatisticsTables")]
+    partial class CreateTestsAndStatisticsTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
@@ -87,8 +90,11 @@ namespace EducationalSoftwareAssignment.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("Grade")
-                        .HasColumnType("REAL");
+                    b.Property<int>("Grade")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TestId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Test_Id")
                         .HasColumnType("INTEGER");
@@ -103,7 +109,7 @@ namespace EducationalSoftwareAssignment.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Test_Id");
+                    b.HasIndex("TestId");
 
                     b.ToTable("Statistics");
                 });
@@ -321,7 +327,7 @@ namespace EducationalSoftwareAssignment.Migrations
                 {
                     b.HasOne("EducationalSoftwareAssignment.Models.Test", "Test")
                         .WithMany()
-                        .HasForeignKey("Test_Id")
+                        .HasForeignKey("TestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
