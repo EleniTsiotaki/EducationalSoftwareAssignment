@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Test1";
+}
+
+
+
+
+<body class="bg-dark text-white">
+    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;"> @ViewData["Title"]</header>
+    <div style="justify-content=center;">
+    <div class="container mt-5 ">
+        <form id="quizForm">
+            <div class="form-group">
+                <p>Please select your favorite Web language:</p>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="html" name="fav_language" value="HTML" class="custom-control-input">
+                    <label class="custom-control-label" for="html">HTML</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="css" name="fav_language" value="CSS" class="custom-control-input">
+                    <label class="custom-control-label" for="css">CSS</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="javascript" name="fav_language" value="JavaScript" class="custom-control-input">
+                    <label class="custom-control-label" for="javascript">JavaScript</label>
+                </div>
+            </div>
+            <br />
+         </form>
+    </div>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="gradeQuiz()">Grade Quiz</button>
+</body>
