@@ -15,7 +15,7 @@ namespace EducationalSoftwareAssignment.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
 
             modelBuilder.Entity("EducationalSoftwareAssignment.Models.ApplicationUser", b =>
                 {
@@ -146,42 +146,42 @@ namespace EducationalSoftwareAssignment.Migrations
                         new
                         {
                             Id = 5,
-                            Level = "Advanced"
+                            Level = "Intermediate"
                         },
                         new
                         {
                             Id = 6,
-                            Level = "Advanced"
+                            Level = "Intermediate"
                         },
                         new
                         {
                             Id = 7,
-                            Level = "Advanced"
+                            Level = "Intermediate"
                         },
                         new
                         {
                             Id = 8,
-                            Level = "Advanced"
+                            Level = "Intermediate"
                         },
                         new
                         {
                             Id = 9,
-                            Level = "Intermediate"
+                            Level = "Advanced"
                         },
                         new
                         {
                             Id = 10,
-                            Level = "Intermediate"
+                            Level = "Advanced"
                         },
                         new
                         {
                             Id = 11,
-                            Level = "Intermediate"
+                            Level = "Advanced"
                         },
                         new
                         {
                             Id = 12,
-                            Level = "Intermediate"
+                            Level = "Advanced"
                         });
                 });
 

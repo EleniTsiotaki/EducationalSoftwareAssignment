@@ -1,7 +1,9 @@
 ﻿using EducationalSoftwareAssignment.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+
 
 namespace EducationalSoftwareAssignment.Controllers
 {
@@ -40,6 +42,24 @@ namespace EducationalSoftwareAssignment.Controllers
             await _context.SaveChangesAsync();
 
             return Ok();
+        }
+
+        // GET: Tests/GetTestIdsWithGrade
+        [HttpGet("testIds")]
+        public async Task<IActionResult> GetTestIdsWithGrade(double grade = 2.5)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            var testIds = await _context.Statistics
+            .Where(s => s.Username == user.UserName && s.Grade == grade)
+            .Select(s => s.Test_Id)
+            .ToListAsync();
+
+            return Ok(testIds);
         }
 
         // GET: Tests/Test11
@@ -133,4 +153,5 @@ namespace EducationalSoftwareAssignment.Controllers
         public float Score { get; set; }
         public string ElapsedTime { get; set; }
     }
+
 }

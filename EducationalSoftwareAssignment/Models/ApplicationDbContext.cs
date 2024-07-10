@@ -26,14 +26,14 @@ namespace EducationalSoftwareAssignment.Models
             new Test { Id = 2, Level = "Beginner" },
             new Test { Id = 3, Level = "Beginner" },
             new Test { Id = 4, Level = "Beginner" },
-            new Test { Id = 5, Level = "Advanced" },
-            new Test { Id = 6, Level = "Advanced" },
-            new Test { Id = 7, Level = "Advanced" },
-            new Test { Id = 8, Level = "Advanced" },
-            new Test { Id = 9, Level = "Intermediate" },
-            new Test { Id = 10, Level = "Intermediate" },
-            new Test { Id = 11, Level = "Intermediate" },
-            new Test { Id = 12, Level = "Intermediate" }
+            new Test { Id = 5, Level = "Intermediate" },
+            new Test { Id = 6, Level = "Intermediate" },
+            new Test { Id = 7, Level = "Intermediate" },
+            new Test { Id = 8, Level = "Intermediate" },
+            new Test { Id = 9, Level = "Advanced" },
+            new Test { Id = 10, Level = "Advanced" },
+            new Test { Id = 11, Level = "Advanced" },
+            new Test { Id = 12, Level = "Advanced" }
         );
 
             modelBuilder.Entity<Statistics>()

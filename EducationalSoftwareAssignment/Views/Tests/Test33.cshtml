@@ -1,5 +1,182 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Test 3";
 }
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        #timer, #quizForm {
+            display: none;
+        }
+
+        #timer {
+            font-size: 2em;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;">@ViewData["Title"]</header>
+    <div class="container pb-5">
+        <button id="begin-test-btn" type="button" class="btn btn-primary">Begin Test</button>
+        <div id="timer">Time: <span id="time-elapsed">0:00</span></div>
+        <form id="quizForm" class="mt-5">
+            <div class="form-group">
+                <p>1. Garbage collection in Java is automatic and cannot be manually triggered.</p>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="question1" value="True">
+                    <label class="custom-control-label">True</label>
+                </div>
+                <div class="custom-control custom-radio mb-3">
+                    <input type="radio" class="custom-control-input" name="question1" value="False">
+                    <label class="custom-control-label">False</label>
+                </div>
+
+                <p>
+                    2. Which of the following is not a garbage collection algorithm used in Java?
+                </p>
+                <div class="custom-control custom-radio ">
+                    <input type="radio" class="custom-control-input" name="question2" value="A">
+                    <label class="custom-control-label">Mark-Sweep</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="question2" value="B">
+                    <label class="custom-control-label">Reference Counting</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="question2" value="C">
+                    <label class="custom-control-label">Tracing</label>
+                </div>
+                <div class="custom-control custom-radio mb-3">
+                    <input type="radio" class="custom-control-input" name="question2" value="D">
+                    <label class="custom-control-label">Compaction</label>
+                </div>
+
+                <p>
+                    3. The finalize() method is guaranteed to be called before an object is garbage collected.<p>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="question3" value="True">
+                    <label class="custom-control-label">True</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="question3" value="False">
+                    <label class="custom-control-label">False</label>
+                </div>
+
+                <p>
+                    4. What is the main purpose of the WeakReference class in Java?
+                </p>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="question4" value="A">
+                    <label class="custom-control-label">To hold a reference to an object that should be strongly reachable.</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="question4" value="B">
+                    <label class="custom-control-label">To hold a reference to an object that should be softly reachable.</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="question4" value="C">
+                    <label class="custom-control-label">To hold a reference to an object that should be weakly reachable.</label>
+                </div>
+                <div class="custom-control custom-radio mb-3">
+                    <input type="radio" class="custom-control-input" name="question4" value="D">
+                    <label class="custom-control-label">To prevent an object from being garbage collected.</label>
+                </div>
+
+            </div>
+            <br />
+            <button id="grade-quiz-btn" type="button" class="btn btn-success" style="display:none;" onclick="gradeQuiz()">Grade Quiz</button>
+        </form>
+    </div>
+
+    <script>
+        let startTime, timerInterval;
+
+        document.getElementById('begin-test-btn').addEventListener('click', function () {
+            this.style.display = 'none';
+            document.getElementById('timer').style.display = 'block';
+            document.getElementById('quizForm').style.display = 'block';
+            document.getElementById('grade-quiz-btn').style.display = 'inline-block';
+            startTimer();
+        });
+
+        function startTimer() {
+            startTime = Date.now();
+            timerInterval = setInterval(() => {
+                const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+                const minutes = Math.floor(elapsedTime / 60);
+                const seconds = elapsedTime % 60;
+                document.getElementById('time-elapsed').innerText = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+            return elapsedTime;
+        }
+
+        async function gradeQuiz() {
+            const elapsedTime = stopTimer();
+            document.getElementById('timer').style.display = 'none';
+            document.getElementById('grade-quiz-btn').style.display = 'none';
+            document.getElementById('begin-test-btn').style.display = 'inline-block';
+            document.getElementById('quizForm').style.display = 'none';
+
+            const correctAnswers = {
+                question1: "False",
+                question2: "B",
+                question3: "False",
+                question4: "C",
+            };
+
+            const form = document.getElementById('quizForm');
+            let score = 0;
+            let all_correct = true;
+            for (const [question, answer] of Object.entries(correctAnswers)) {
+                const selected = form.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answer) {
+                    score++;
+                }
+                else {
+                    all_correct = false;
+                }
+            }
+
+            // Save elapsed time and score to the database
+            // access the test_id
+            if (all_correct == true) {
+                const testId = 11;
+                const score = 2.5;
+                const response = await fetch('/Tests/PostTestResult', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}` })
+                });
+
+                if (response.ok) {
+                    alert('Quiz graded successfully!');
+                } else {
+                    alert('Failed to save the quiz time and score.');
+                }
+            }
+            else {
+                alert('Not all answers are correct. The quiz result will not be saved.');
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -147,6 +147,16 @@
         margin-top: 0.5rem;
     }
 
+    a[id^="course"]:not([id="course1"]),
+    a[id^="test"]:not([id="test1"]) {
+        cursor: not-allowed; /* Change cursor to indicate link is disabled */
+        pointer-events: none; /* Disable pointer events */
+        color: #999; /* Example color for disabled links */
+        text-decoration: none; /* Remove underline */
+        opacity: 0.6; /* Reduce opacity to indicate disabled state */
+        /* Add other specific styles as needed */
+    }
+
 </style>
 
 
@@ -190,13 +200,13 @@
                 Select a Course
             </button>
             <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" id="myDropdown1">
-                <a class="dropdown-item" href="/Courses/Course11">Course 1</a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test11">Test 1 </a>
-                <a class="dropdown-item" href="/Courses/Course12">Course 2 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test12">Test 2 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course13">Course 3 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test13">Test 3 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test14">Final Test <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" href="/Courses/Course11" id="course1">Course 1</a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test11" id="test1">Test 1 </a>
+                <a class="dropdown-item" href="/Courses/Course12" id="course2">Course 2 <i class="fa fa-lock"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test12" id="test2">Test 2 <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" href="/Courses/Course13" id="course3">Course 3 <i class="fa fa-lock"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test13" id="test3">Test 3 <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test14" id="test4">Final Test <i class="fa fa-lock" style="color:darkgreen"></i></a>
             </div>
         </div>
     </div>
@@ -237,13 +247,13 @@
                 Select a Course
             </button>
             <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" id="myDropdown2">
-                <a class="dropdown-item" href="/Courses/Course21">Course 1 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test21">Test 1 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course22">Course 2 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test22">Test 2 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course23">Course 3 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test23">Test 3 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test24">Final Test <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" href="/Courses/Course21" id="course5">Course 1 <i class="fa fa-lock"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test21" id="test5">Test 1 <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" href="/Courses/Course22" id="course6">Course 2 <i class="fa fa-lock"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test22" id="test6">Test 2 <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" href="/Courses/Course23" id="course7">Course 3 <i class="fa fa-lock"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test23" id="test7">Test 3 <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test24" id="test8">Final Test <i class="fa fa-lock" style="color:darkgreen"></i></a>
             </div>
         </div>
     </div>
@@ -283,13 +293,13 @@
                 Select a Course
             </button>
             <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" id="myDropdown3">
-                <a class="dropdown-item" href="/Courses/Course31">Course 1 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test31">Test 1 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course32">Course 2 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test32">Test 2 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course33">Course 3 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test33">Test 3 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test34">Final Test <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" href="/Courses/Course31" id="course9">Course 1 <i class="fa fa-lock"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test31" id="test9">Test 1 <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" href="/Courses/Course32" id="course10">Course 2 <i class="fa fa-lock"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test32" id="test10">Test 2 <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" href="/Courses/Course33" id="course11"> Course 3 <i class="fa fa-lock"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test33" id="test11">Test 3 <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test34" id="test12">Final Test <i class="fa fa-lock" style="color:darkgreen"></i></a>
             </div>
         </div>
 
@@ -352,5 +362,7 @@
                     }
                 }
             }
+
+            
     </script>
 </body>

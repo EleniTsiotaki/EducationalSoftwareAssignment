@@ -57,14 +57,14 @@ namespace EducationalSoftwareAssignment.Migrations
                     { 2, "Beginner" },
                     { 3, "Beginner" },
                     { 4, "Beginner" },
-                    { 5, "Advanced" },
-                    { 6, "Advanced" },
-                    { 7, "Advanced" },
-                    { 8, "Advanced" },
-                    { 9, "Intermediate" },
-                    { 10, "Intermediate" },
-                    { 11, "Intermediate" },
-                    { 12, "Intermediate" }
+                    { 5, "Intermediate" },
+                    { 6, "Intermediate" },
+                    { 7, "Intermediate" },
+                    { 8, "Intermediate" },
+                    { 9, "Advanced" },
+                    { 10, "Advanced" },
+                    { 11, "Advanced" },
+                    { 12, "Advanced" }
                 });
 
             migrationBuilder.CreateIndex(
