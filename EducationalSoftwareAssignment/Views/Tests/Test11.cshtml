@@ -160,24 +160,20 @@
                 question5: "C"
             };
 
-            const form = document.getElementById('quizForm');
-            let score = 0;
             let all_correct = true;
             for (const [question, answer] of Object.entries(correctAnswers)) {
-                const selected = form.querySelector(`input[name="${question}"]:checked`);
-                if (selected && selected.value === answer) {
-                    score++;
-                }
-                else {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (!selected || selected.value !== answer) {
                     all_correct = false;
+                    break;
                 }
             }
 
-            // Save elapsed time and score to the database
-            // access the test_id
-            if (all_correct == true) {
-                const testId = 1;
-                const score = 2.5;
+            // Save elapsed time and grade to the database
+            if (all_correct) {
+                const testId = 1; // Adjust this to match your test ID for Test11
+                const score = 2.5; // Set the score here
+
                 const response = await fetch('/Tests/PostTestResult', {
                     method: 'POST',
                     headers: {
@@ -188,14 +184,14 @@
 
                 if (response.ok) {
                     alert('Quiz graded successfully!');
+                    // Optionally, update UI to show that the test is completed or unlock Test12
+                    // Example: Reload page or update UI elements
                 } else {
                     alert('Failed to save the quiz time and score.');
                 }
-            }
-            else {
+            } else {
                 alert('Not all answers are correct. The quiz result will not be saved.');
             }
-
         }
     </script>
 </body>

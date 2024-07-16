@@ -1,21 +1,40 @@
+using EducationalSoftwareAssignment.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LearnJava.Controllers
+namespace EducationalSoftwareAssignment.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public IActionResult Courses()
+        {
+            var username = User.Identity.Name; // Get the username of the logged-in user
+            if (username == null)
+            {
+                return RedirectToAction("Login", "Account"); // Redirect if not authenticated
+            }
+
+            // Fetch grades for the logged-in user from Statistics table
+            var userTests = _context.Statistics
+                                   .Where(t => t.Username == username)
+                                   .ToList();
+            return View("Courses", userTests); // Pass userTests data to Courses.cshtml view
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Courses()
+        public IActionResult Test(int id)
         {
-            return View();
-        }
-
-        public IActionResult Test()
-        {
+            ViewData["TestId"] = id;
             return View();
         }
 

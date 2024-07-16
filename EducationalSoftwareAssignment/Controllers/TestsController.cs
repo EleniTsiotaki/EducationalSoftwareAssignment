@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Microsoft.DotNet.Scaffolding.Shared.CodeModifier.CodeChange;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace EducationalSoftwareAssignment.Controllers
@@ -30,6 +32,7 @@ namespace EducationalSoftwareAssignment.Controllers
                 return Unauthorized();
             }
 
+            // Save the test result in Statistics table
             var statistic = new Statistics
             {
                 Test_Id = model.TestId,
@@ -41,10 +44,73 @@ namespace EducationalSoftwareAssignment.Controllers
             _context.Statistics.Add(statistic);
             await _context.SaveChangesAsync();
 
+            // Check if the completed test should unlock the next test
+            await UnlockNextTest(model.TestId, model.Score, user.UserName);
+
             return Ok();
         }
 
-        // GET: Tests/GetTestIdsWithGrade
+        private async Task UnlockNextTest(int testId, double score, string username)
+        {
+            if (testId == 1 && score >= 2.5)
+            {
+                // Unlock Test12
+                var test12 = await _context.Tests.FindAsync(1);
+
+                if (test12 != null)
+                {
+                    test12.IsUnlocked = true;  // Set IsUnlocked to true
+                    await _context.SaveChangesAsync();
+                }
+            }
+            else if (testId == 2 && score >= 2.5)
+            {
+                // Unlock Test13
+                var test22 = await _context.Tests.FindAsync(2);
+
+                if (test22 != null)
+                {
+                    test22.IsUnlocked = true;  // Set IsUnlocked to true
+                    await _context.SaveChangesAsync();
+                }
+            }
+            else if (testId == 3 && score >= 2.5)
+            {
+                // Unlock Test14
+                var test32 = await _context.Tests.FindAsync(3);
+
+                if (test32 != null)
+                {
+                    test32.IsUnlocked = true;  // Set IsUnlocked to true
+                    await _context.SaveChangesAsync();
+                }
+            }
+        }
+
+        // GET: Tests/CheckTimerForExercise
+        [HttpGet("CheckTimerForExercise")]
+        public async Task<IActionResult> CheckTimerForExercise()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            var exerciseToShow = await _context.Statistics
+                                               .Where(s => s.Username == user.UserName && s.Timer == "0:10")
+                                               .Select(s => s.Test_Id)
+                                               .FirstOrDefaultAsync();
+
+            if (exerciseToShow > 0)
+            {
+                return RedirectToAction("Exercise1", "Practice");
+            }
+
+            return View("Index");
+        }
+
+        // GET: Tests/testIds
         [HttpGet("testIds")]
         public async Task<IActionResult> GetTestIdsWithGrade(double grade = 2.5)
         {
@@ -54,12 +120,37 @@ namespace EducationalSoftwareAssignment.Controllers
                 return Unauthorized();
             }
 
+            // Retrieve test IDs with grades for the current user
             var testIds = await _context.Statistics
-            .Where(s => s.Username == user.UserName && s.Grade == grade)
-            .Select(s => s.Test_Id)
-            .ToListAsync();
+                .Where(s => s.Username == user.UserName && s.Grade >= grade)
+                .Select(s => s.Test_Id)
+                .ToListAsync();
 
             return Ok(testIds);
+        }
+
+        // GET: Tests/CheckGradeForExercise
+        [HttpGet("CheckGradeForExercise")]
+        public async Task<IActionResult> CheckGradeForExercise()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            var highestGrade = await _context.Statistics
+                                              .Where(s => s.Username == user.UserName)
+                                              .OrderByDescending(s => s.Grade)
+                                              .Select(s => s.Grade)
+                                              .FirstOrDefaultAsync();
+
+            if (highestGrade >= 2.5)
+            {
+                return RedirectToAction("Exercise1", "Practice");
+            }
+
+            return View("Index");
         }
 
         // GET: Tests/Test11
@@ -71,9 +162,16 @@ namespace EducationalSoftwareAssignment.Controllers
 
         // GET: Tests/Test12
         [HttpGet("Test12")]
-        public IActionResult Test12()
+        public async Task<IActionResult> Test12()
         {
-            return View();
+            var test12 = await _context.Tests.FindAsync(12);
+
+            if (test12 == null || !test12.IsUnlocked)
+            {
+                return Unauthorized();  // Or handle accordingly (redirect, return error, etc.)
+            }
+
+            return View();  // Return the view for Test12
         }
 
         // GET: Tests/Test13

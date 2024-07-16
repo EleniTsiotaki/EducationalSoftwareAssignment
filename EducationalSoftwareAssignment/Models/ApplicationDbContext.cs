@@ -22,18 +22,18 @@ namespace EducationalSoftwareAssignment.Models
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Test>().HasData(
-            new Test { Id = 1, Level = "Beginner" },
-            new Test { Id = 2, Level = "Beginner" },
-            new Test { Id = 3, Level = "Beginner" },
-            new Test { Id = 4, Level = "Beginner" },
-            new Test { Id = 5, Level = "Intermediate" },
-            new Test { Id = 6, Level = "Intermediate" },
-            new Test { Id = 7, Level = "Intermediate" },
-            new Test { Id = 8, Level = "Intermediate" },
-            new Test { Id = 9, Level = "Advanced" },
-            new Test { Id = 10, Level = "Advanced" },
-            new Test { Id = 11, Level = "Advanced" },
-            new Test { Id = 12, Level = "Advanced" }
+            new Test { Id = 1, Level = "Beginner", IsUnlocked = false},
+            new Test { Id = 2, Level = "Beginner", IsUnlocked = false },
+            new Test { Id = 3, Level = "Beginner", IsUnlocked = false },
+            new Test { Id = 4, Level = "Beginner", IsUnlocked = false },
+            new Test { Id = 5, Level = "Intermediate", IsUnlocked = false },
+            new Test { Id = 6, Level = "Intermediate", IsUnlocked = false },
+            new Test { Id = 7, Level = "Intermediate", IsUnlocked = false },
+            new Test { Id = 8, Level = "Intermediate", IsUnlocked = false },
+            new Test { Id = 9, Level = "Advanced", IsUnlocked = false },
+            new Test { Id = 10, Level = "Advanced", IsUnlocked = false },
+            new Test { Id = 11, Level = "Advanced", IsUnlocked = false },
+            new Test { Id = 12, Level = "Advanced", IsUnlocked = false }
         );
 
             modelBuilder.Entity<Statistics>()

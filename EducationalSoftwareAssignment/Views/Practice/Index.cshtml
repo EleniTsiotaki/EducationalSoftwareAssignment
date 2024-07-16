@@ -44,24 +44,25 @@
             .btn-primary:hover {
                 background-color: #0056b3;
                 border-color: #0056b3;
+            }
     </style>
 </head>
 <body class="bg-dark text-white vsc-initialized">
     <div class="container">
         <h1 class="text-center">@ViewData["Title"]</h1>
 
-        <div class="exercise">
-            <h2>Exercise 1: Introduction to Variables</h2>
-            <p>In this exercise, you will learn about declaring and using variables in Java.</p>
-            <a class="btn btn-primary" href="/Exercises/Exercise1">Start Exercise</a>
-        </div>
-
+        @if (ViewBag.ExerciseVisible)
+        {
+            <div class="exercise">
+                <h2>Exercise 1: Introduction to Variables</h2>
+                <p>In this exercise, you will learn about declaring and using variables in Java.</p>
+                <a class="btn btn-primary" href="/Practice/Exercise1">Start Exercise</a>
+            </div>
+        }
     </div>
     <br />
     <br />
     <br />
     <br />
-
-
 </body>
 </html>
