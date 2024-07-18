@@ -38,7 +38,13 @@ namespace EducationalSoftwareAssignment.Controllers
                 Test_Id = model.TestId,
                 Grade = model.Score,
                 Timer = model.ElapsedTime,
-                Username = user.UserName
+                Username = user.UserName,
+                Answer1 = model.Answer1,
+                Answer2 = model.Answer2,
+                Answer3 = model.Answer3,
+                Answer4 = model.Answer4,
+                Answer5 = model.Answer5,
+                IsCorrect = model.IsCorrect
             };
 
             _context.Statistics.Add(statistic);
@@ -271,6 +277,12 @@ namespace EducationalSoftwareAssignment.Controllers
         public int TestId { get; set; }
         public float Score { get; set; }
         public string ElapsedTime { get; set; }
+        public string Answer1 { get; set; }
+        public string Answer2 { get; set; }
+        public string Answer3 { get; set; }
+        public string Answer4 { get; set; }
+        public string Answer5 { get; set; }
+        public bool IsCorrect { get; set; }
     }
 
 }

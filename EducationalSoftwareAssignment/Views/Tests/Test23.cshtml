@@ -139,6 +139,17 @@
                 question4: "C",
             };
 
+            const question1 = document.querySelector('input[name="question1"]:checked');
+            const question2 = document.querySelector('input[name="question2"]:checked');
+            const question3 = document.querySelector('input[name="question3"]:checked');
+            const question4 = document.querySelector('input[name="question4"]:checked');
+
+            const answer1 = question1.value;
+            const answer2 = question2.value;
+            const answer3 = question3.value;
+            const answer4 = question4.value;
+            const answer5 = "";
+
             const form = document.getElementById('quizForm');
             let score = 0;
             let all_correct = true;
@@ -152,17 +163,18 @@
                 }
             }
 
+            const testId = 7;
             // Save elapsed time and score to the database
             // access the test_id
             if (all_correct == true) {
-                const testId = 7;
+
                 const score = 2.5;
                 const response = await fetch('/Tests/PostTestResult', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}` })
+                    body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}`, Answer1: answer1, Answer2: answer2, Answer3: answer3, Answer4: answer4, Answer5: answer5, IsCorrect: all_correct })
                 });
 
                 if (response.ok) {
@@ -172,6 +184,23 @@
                 }
             }
             else {
+                const score = 0; // Set the score here
+
+                const response = await fetch('/Tests/PostTestResult', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}`, Answer1: answer1, Answer2: answer2, Answer3: answer3, Answer4: answer4, Answer5: answer5, IsCorrect: all_correct })
+                });
+
+                if (response.ok) {
+                    alert('Quiz graded successfully!');
+                    // Optionally, update UI to show that the test is completed or unlock Test12
+                    // Example: Reload page or update UI elements
+                } else {
+                    alert('Failed to save the quiz time and score.');
+                }
                 alert('Not all answers are correct. The quiz result will not be saved.');
             }
 

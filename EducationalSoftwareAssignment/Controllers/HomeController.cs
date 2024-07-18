@@ -69,6 +69,10 @@ namespace EducationalSoftwareAssignment.Controllers
         {
             var username = User.Identity.Name;
 
+            // Retrieve or create progress record for the current user
+            var progress = _context.Progress
+                .FirstOrDefault(p => p.Username == username);
+
             // Retrieve statistics for the current user
             var userStats = _context.Statistics
                 .Where(s => s.Username == username)
@@ -78,9 +82,25 @@ namespace EducationalSoftwareAssignment.Controllers
 
             if (userStats.Count == 0)
             {
-                // Handle case where no statistics are found (optional)
-                // You might want to return a different view or handle this differently
-                return RedirectToAction("Index"); // Example redirection
+                progress = new Progress
+                {
+                    Username = username,
+                    TotalGrade = 0,
+                    AverageGrade = 0,
+                    SucceededTests = 0,
+                    BeginnerTests = 0,
+                    IntermediateTests = 0,
+                    AdvancedTests = 0,
+                    BeginnerAverage = 0,
+                    IntermediateAverage = 0,
+                    AdvancedAverage = 0,
+                    DateTime = DateTime.Now
+                };
+                _context.Progress.Add(progress);
+                _context.SaveChanges(); // Save changes to the progress record
+                                        // Handle case where no statistics are found (optional)
+                                        // You might want to return a different view or handle this differently
+                return View(progress); // Example redirection
             }
 
             var userStatsWithLevel = userStats
@@ -97,7 +117,7 @@ namespace EducationalSoftwareAssignment.Controllers
                 .ToList();
 
             // Calculate total grade, tests taken, and average grade
-            float totalGrade = userStats.Sum(s => s.Grade);
+            float totalGrade = userStats.Sum(s => s.Grade );
             int testsTaken = userStats.Count;
             decimal averageGrade = testsTaken > 0 ? (decimal)totalGrade / testsTaken : 0;
             int beginnerTests = userStatsWithLevel.Where(s => s.Level == "Beginner").Any() ? userStatsWithLevel.Count(s => s.Level == "Beginner") : 0;
@@ -108,9 +128,6 @@ namespace EducationalSoftwareAssignment.Controllers
             double advancedAverage = userStatsWithLevel.Where(s => s.Level == "Advanced").Any() ? userStatsWithLevel.Where(s => s.Level == "Advanced").Average(s => s.Grade) : 0;
             //double time = userStats.Sum(s => double.Parse(s.Timer));
 
-            // Retrieve or create progress record for the current user
-            var progress = _context.Progress
-                .FirstOrDefault(p => p.Username == username);
 
             if (progress == null)
             {

@@ -3,6 +3,7 @@ using System;
 using EducationalSoftwareAssignment.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EducationalSoftwareAssignment.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240718183905_StatisticsTableAddColumnsUpdated")]
+    partial class StatisticsTableAddColumnsUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
@@ -138,31 +141,28 @@ namespace EducationalSoftwareAssignment.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Answer1")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Answer2")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Answer3")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Answer4")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Answer5")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<float>("Grade")
                         .HasColumnType("REAL");
 
-                    b.Property<bool>("IsCorrect")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("IsCorrectA")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IsCorrectB")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IsCorrectC")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IsCorrectD")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IsCorrectE")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Test_Id")
                         .HasColumnType("INTEGER");
