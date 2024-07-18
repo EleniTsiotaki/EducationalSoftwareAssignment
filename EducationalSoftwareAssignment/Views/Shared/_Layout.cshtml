@@ -24,7 +24,7 @@
 
     }
 </style>
-<body>
+<body class="bg-dark text-white">
     <!-- Top Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="margin-left:1%; margin-right:1%">
         <a class="navbar-brand" href="/Home/Index" style="color:#fff4e6;">JavaCoders</a>
@@ -47,7 +47,7 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="nav-item" style="margin-right:20px; margin-top:5px;">
-                        <a class="nav-link" style="color: cornflowerblue; border: 1px solid cornflowerblue; padding: 5px;"> @User.Identity.Name </a>
+                        <a class="nav-link" style="color: cornflowerblue; border: 1px solid cornflowerblue; padding: 5px;"> @User.Identity.Name.Split('@')[0] </a>
                     </li>
                     <li class="nav-item">
                         <form asp-area="Identity" asp-page="/Account/Logout" method="post" id="logoutForm" class="form-inline">

@@ -10,12 +10,14 @@ namespace EducationalSoftwareAssignment.Models
         private readonly IConfiguration _configuration;
         public DbSet<Test> Tests { get; set; }
         public DbSet<Statistics> Statistics { get; set; }
+        public DbSet<Progress> Progress { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration)
             : base(options)
         {
             _configuration = configuration;
         }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -40,6 +42,8 @@ namespace EducationalSoftwareAssignment.Models
             .HasOne(s => s.Test)
             .WithMany()
             .HasForeignKey(s => s.Test_Id);
+
+
         }
 
     }
