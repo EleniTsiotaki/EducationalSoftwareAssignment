@@ -13,7 +13,7 @@
         .container {
             padding-top: 20px;
             padding-bottom: 100px;
-            margin-top: 20px
+            margin-top: 20px;
         }
 
         .exercise {
@@ -51,13 +51,31 @@
     <div class="container">
         <h1 class="text-center">@ViewData["Title"]</h1>
 
-        @if (ViewBag.ExerciseVisible)
+        @{
+            var exercises = new[]
+            {
+        new { Title = "Exercise 1: Introduction to Variables", Description = "In this exercise, you will learn about declaring and using variables in Java.", Url = "/Practice/Exercise1" },
+        new { Title = "Exercise 2: Control Structures", Description = "In this exercise, you will learn about control structures such as if-else and loops in Java.", Url = "/Practice/Exercise2" },
+        new { Title = "Exercise 3: Functions and Methods", Description = "In this exercise, you will learn about defining and calling functions and methods in Java.", Url = "/Practice/Exercise3" },
+        new { Title = "Exercise 4: Object-Oriented Programming", Description = "In this exercise, you will learn about the basics of object-oriented programming in Java.", Url = "/Practice/Exercise4" },
+        new { Title = "Exercise 5: Inheritance and Polymorphism", Description = "In this exercise, you will learn about inheritance and polymorphism in Java.", Url = "/Practice/Exercise5" },
+        new { Title = "Exercise 6: Exception Handling", Description = "In this exercise, you will learn about exception handling in Java.", Url = "/Practice/Exercise6" },
+        new { Title = "Exercise 7: File I/O", Description = "In this exercise, you will learn about file input and output in Java.", Url = "/Practice/Exercise7" },
+        new { Title = "Exercise 8: Advanced Topics", Description = "In this exercise, you will learn about some advanced topics in Java.", Url = "/Practice/Exercise8" }
+        };
+            var visibility = (bool[])ViewBag.ExerciseVisibility;
+        }
+
+        @for (int i = 0; i < exercises.Length; i++)
         {
-            <div class="exercise">
-                <h2>Exercise 1: Introduction to Variables</h2>
-                <p>In this exercise, you will learn about declaring and using variables in Java.</p>
-                <a class="btn btn-primary" href="/Practice/Exercise1">Start Exercise</a>
-            </div>
+            if (visibility[i])
+            {
+                <div class="exercise">
+                    <h2>@exercises[i].Title</h2>
+                    <p>@exercises[i].Description</p>
+                    <a class="btn btn-primary" href="@exercises[i].Url">Start Exercise</a>
+                </div>
+            }
         }
     </div>
     <br />

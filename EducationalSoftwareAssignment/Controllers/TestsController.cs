@@ -97,6 +97,7 @@ namespace EducationalSoftwareAssignment.Controllers
                 return Unauthorized();
             }
 
+            // Check if any test has a timer of "0:10"
             var exerciseToShow = await _context.Statistics
                                                .Where(s => s.Username == user.UserName && s.Timer == "0:10")
                                                .Select(s => s.Test_Id)
@@ -104,7 +105,27 @@ namespace EducationalSoftwareAssignment.Controllers
 
             if (exerciseToShow > 0)
             {
-                return RedirectToAction("Exercise1", "Practice");
+                switch (exerciseToShow)
+                {
+                    case 1:
+                        return RedirectToAction("Exercise1", "Practice");
+                    case 2:
+                        return RedirectToAction("Exercise2", "Practice");
+                    case 3:
+                        return RedirectToAction("Exercise3", "Practice");
+                    case 4:
+                        return RedirectToAction("Exercise4", "Practice");
+                    case 5:
+                        return RedirectToAction("Exercise5", "Practice");
+                    case 6:
+                        return RedirectToAction("Exercise6", "Practice");
+                    case 7:
+                        return RedirectToAction("Exercise7", "Practice");
+                    case 8:
+                        return RedirectToAction("Exercise8", "Practice");
+                    default:
+                        break;
+                }
             }
 
             return View("Index");
@@ -164,13 +185,13 @@ namespace EducationalSoftwareAssignment.Controllers
         [HttpGet("Test12")]
         public async Task<IActionResult> Test12()
         {
-            var test12 = await _context.Tests.FindAsync(12);
+            /*var test12 = await _context.Tests.FindAsync(12);
 
             if (test12 == null || !test12.IsUnlocked)
             {
                 return Unauthorized();  // Or handle accordingly (redirect, return error, etc.)
             }
-
+            */
             return View();  // Return the view for Test12
         }
 
