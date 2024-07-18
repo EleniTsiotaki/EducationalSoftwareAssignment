@@ -72,22 +72,33 @@ namespace EducationalSoftwareAssignment.Controllers
             else if (testId == 2 && score >= 2.5)
             {
                 // Unlock Test13
-                var test22 = await _context.Tests.FindAsync(2);
+                var test13 = await _context.Tests.FindAsync(2);
 
-                if (test22 != null)
+                if (test13 != null)
                 {
-                    test22.IsUnlocked = true;  // Set IsUnlocked to true
+                    test13.IsUnlocked = true;  // Set IsUnlocked to true
                     await _context.SaveChangesAsync();
                 }
             }
             else if (testId == 3 && score >= 2.5)
             {
                 // Unlock Test14
-                var test32 = await _context.Tests.FindAsync(3);
+                var test14 = await _context.Tests.FindAsync(3);
 
-                if (test32 != null)
+                if (test14 != null)
                 {
-                    test32.IsUnlocked = true;  // Set IsUnlocked to true
+                    test14.IsUnlocked = true;  // Set IsUnlocked to true
+                    await _context.SaveChangesAsync();
+                }
+            }
+            else if (testId == 5 && score >= 2.5)
+            {
+                // Unlock Test16
+                var test22 = await _context.Tests.FindAsync(5);
+
+                if (test22 != null)
+                {
+                    test22.IsUnlocked = true;  // Set IsUnlocked to true
                     await _context.SaveChangesAsync();
                 }
             }
@@ -103,11 +114,16 @@ namespace EducationalSoftwareAssignment.Controllers
                 return Unauthorized();
             }
 
-            // Check if any test has a timer of "0:10"
-            var exerciseToShow = await _context.Statistics
-                                               .Where(s => s.Username == user.UserName && s.Timer == "0:10")
-                                               .Select(s => s.Test_Id)
-                                               .FirstOrDefaultAsync();
+            // Fetch all statistics for the user
+            var userStatistics = await _context.Statistics
+                                               .Where(s => s.Username == user.UserName)
+                                               .ToListAsync();
+
+            // Filter in-memory based on the timer >= "0:10"
+            var exerciseToShow = userStatistics
+                                 .Where(s => ConvertTimerToSeconds(s.Timer) >= 10)
+                                 .Select(s => s.Test_Id)
+                                 .FirstOrDefault();
 
             if (exerciseToShow > 0)
             {
@@ -129,12 +145,25 @@ namespace EducationalSoftwareAssignment.Controllers
                         return RedirectToAction("Exercise7", "Practice");
                     case 8:
                         return RedirectToAction("Exercise8", "Practice");
+                    case 9:
+                        return RedirectToAction("Exercise9", "Practice");
                     default:
                         break;
                 }
             }
 
             return View("Index");
+        }
+        private int ConvertTimerToSeconds(string timer)
+        {
+            var parts = timer.Split(':');
+            if (parts.Length == 2)
+            {
+                int minutes = int.Parse(parts[0]);
+                int seconds = int.Parse(parts[1]);
+                return (minutes * 60) + seconds;
+            }
+            return 0;
         }
 
         // GET: Tests/testIds
