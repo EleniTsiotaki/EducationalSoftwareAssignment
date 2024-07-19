@@ -65,20 +65,24 @@ namespace EducationalSoftwareAssignment.Controllers
         {
             return View();
         }
-        public IActionResult Progress()
+        public IActionResult Progress(Progress model)
         {
-            var username = User.Identity.Name;
+           var username = User.Identity.Name;
 
+            
             // Retrieve or create progress record for the current user
             var progress = _context.Progress
                 .FirstOrDefault(p => p.Username == username);
 
             // Retrieve statistics for the current user
             var userStats = _context.Statistics
-                .Where(s => s.Username == username)
-                .GroupBy(s => s.Test_Id)
-                .Select(g => g.OrderBy(s => s.Timer).FirstOrDefault())
-                .ToList();
+            .Where(s => s.Username == username)
+            .GroupBy(s => s.Test_Id) // Group by TestId to handle multiple attempts
+            .Select(g => g
+                .OrderByDescending(s => s.Grade) // Highest grade first
+                .ThenBy(s => s.Timer) // Smallest time if grades are the same
+                .FirstOrDefault())
+            .ToList();
 
             if (userStats.Count == 0)
             {
@@ -88,12 +92,14 @@ namespace EducationalSoftwareAssignment.Controllers
                     TotalGrade = 0,
                     AverageGrade = 0,
                     SucceededTests = 0,
+                    FailedTests = 0,
                     BeginnerTests = 0,
                     IntermediateTests = 0,
                     AdvancedTests = 0,
                     BeginnerAverage = 0,
                     IntermediateAverage = 0,
                     AdvancedAverage = 0,
+                    TotalTime = 0,
                     DateTime = DateTime.Now
                 };
                 _context.Progress.Add(progress);
@@ -126,6 +132,10 @@ namespace EducationalSoftwareAssignment.Controllers
             double beginnerAverage = userStatsWithLevel.Where(s => s.Level == "Beginner").Any() ? userStatsWithLevel.Where(s => s.Level == "Beginner").Average(s => s.Grade) : 0;
             double intermediateAverage = userStatsWithLevel.Where(s => s.Level == "Intermediate").Any() ? userStatsWithLevel.Where(s => s.Level == "Intermediate").Average(s => s.Grade) : 0;
             double advancedAverage = userStatsWithLevel.Where(s => s.Level == "Advanced").Any() ? userStatsWithLevel.Where(s => s.Level == "Advanced").Average(s => s.Grade) : 0;
+            var succeededTests = userStats.Count(s => s.IsCorrect == 1);
+            var failedTests = userStats.Count(s => s.IsCorrect == 0);
+            double time = 0;
+
             //double time = userStats.Sum(s => double.Parse(s.Timer));
 
 
@@ -136,7 +146,9 @@ namespace EducationalSoftwareAssignment.Controllers
                     Username = username,
                     TotalGrade = totalGrade,
                     AverageGrade = averageGrade,
-                    SucceededTests = testsTaken,
+                    SucceededTests = succeededTests,
+                    FailedTests = failedTests,
+                    TotalTime = time,
                     BeginnerTests = beginnerTests,
                     IntermediateTests = intermediateTests,
                     AdvancedTests = advancedTests,

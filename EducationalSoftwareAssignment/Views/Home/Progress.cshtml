@@ -59,8 +59,12 @@
                 <div class="value">Beginner</div>
                 </div> *@
                 <div>
-                    <label>Completed courses:</label>
+                    <label>Succeeded courses:</label>
                     <div class="value">@Model.SucceededTests</div>
+                </div>
+                <div>
+                    <label>Failed courses:</label>
+                    <div class="value">@Model.FailedTests</div>
                 </div>
                 <div>
                     <label>Beginner courses:</label>
@@ -74,7 +78,7 @@
                     <label>Advanced courses:</label>
                     <div class="value">@Model.AdvancedTests</div>
                 </div>
-               @*  <div>
+                <div>
                     <label>Avarage Beginner grade:</label>
                     <div class="value">@Model.BeginnerAverage</div>
                 </div>
@@ -85,7 +89,7 @@
                 <div>
                     <label>Avarage Advanced grade:</label>
                     <div class="value">@Model.AdvancedAverage</div>
-                </div> *@
+                </div>
                 <div>
                     <label>Total grade:</label>
                     <div class="value">@Model.TotalGrade</div>
@@ -94,10 +98,10 @@
                     <label>Avarage grade:</label>
                     <div class="value">@Model.AverageGrade</div>
                 </div>
-                @* <div>
+                <div>
                     <label>Total time:</label>
                     <div class="value">@Model.TotalTime</div>
-                </div> *@
+                </div>
                 <div>
                     <label>Last update:</label>
                     <div class="value">@Model.DateTime</div>

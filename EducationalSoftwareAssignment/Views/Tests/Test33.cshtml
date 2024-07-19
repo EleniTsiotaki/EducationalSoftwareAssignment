@@ -175,7 +175,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}`, Answer1: answer1, Answer2: answer2, Answer3: answer3, Answer4: answer4, Answer5: answer5, IsCorrect: all_correct })
+                    body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}`, Answer1: answer1, Answer2: answer2, Answer3: answer3, Answer4: answer4, Answer5: answer5, IsCorrect: 1 })
                 });
 
                 if (response.ok) {
@@ -192,7 +192,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}`, Answer1: answer1, Answer2: answer2, Answer3: answer3, Answer4: answer4, Answer5: answer5, IsCorrect: all_correct })
+                    body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}`, Answer1: answer1, Answer2: answer2, Answer3: answer3, Answer4: answer4, Answer5: answer5, IsCorrect: 0 })
                 });
 
                 if (response.ok) {
