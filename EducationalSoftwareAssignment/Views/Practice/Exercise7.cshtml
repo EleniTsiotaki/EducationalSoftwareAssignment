@@ -1,5 +1,271 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Exercise 7: File I/O";
 }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .exercise-container {
+            padding: 30px;
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #bb86fc;
+            margin-bottom: 20px;
+        }
+
+        .exercise-content {
+            margin-top: 20px;
+        }
+
+            .exercise-content p {
+                font-size: 1.1em;
+                color: #b0b0b0;
+            }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #c5c5c5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #d4d4d4;
+        }
+
+        .custom-control-label {
+            color: #e0e0e0;
+        }
+
+        .btn-primary {
+            background-color: #bb86fc;
+            border-color: #bb86fc;
+        }
+
+            .btn-primary:hover {
+                background-color: #9f6fef;
+                border-color: #9f6fef;
+            }
+
+        .correct-answer {
+            color: #34d399;
+        }
+
+        .wrong-answer {
+            color: #f87171;
+        }
+
+        .highlight {
+            background-color: #333;
+            border: 2px solid #f87171;
+        }
+    </style>
+</head>
+<body>
+    <div class="container exercise-container">
+        <h1>@ViewData["Title"]</h1>
+        <div class="exercise-content">
+            <h3>Choose the correct answer for the following File I/O questions:</h3>
+
+            <form id="exercise-form">
+                <div class="form-group">
+                    <p>1. Which class is used to write text to a file in Java?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q1a" name="question1" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q1a">FileReader</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q1b" name="question1" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q1b">FileWriter</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q1c" name="question1" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q1c">BufferedReader</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q1d" name="question1" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q1d">BufferedWriter</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        2. What will be the output of the following code snippet?<br>
+                        <pre><code>import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("input.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                    </p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q2a" name="question2" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q2a">Contents of input.txt</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q2b" name="question2" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q2b">File not found exception</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q2c" name="question2" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q2c">Compilation error</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q2d" name="question2" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q2d">IOException</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p>3. Which method is used to read a line of text from a file in Java?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q3a" name="question3" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q3a">read()</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q3b" name="question3" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q3b">readLine()</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q3c" name="question3" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q3c">readText()</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q3d" name="question3" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q3d">readFile()</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        4. What will be the result of the following code snippet?<br>
+                        <pre><code>import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try (FileWriter writer = new FileWriter("output.txt")) {
+            writer.write("Hello, World!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                    </p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q4a" name="question4" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q4a">Hello, World! is written to output.txt</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q4b" name="question4" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q4b">File not found exception</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q4c" name="question4" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q4c">Compilation error</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q4d" name="question4" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q4d">IOException</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p>5. Which method is used to close a file in Java?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q5a" name="question5" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q5a">end()</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q5b" name="question5" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q5b">close()</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q5c" name="question5" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q5c">finish()</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q5d" name="question5" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q5d">terminate()</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Answers</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('exercise-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const correctAnswers = {
+                question1: 'B',
+                question2: 'A',
+                question3: 'B',
+                question4: 'A',
+                question5: 'B'
+            };
+
+            const form = event.target;
+            const formData = new FormData(form);
+            let score = 0;
+
+            form.querySelectorAll('.form-group').forEach((group, index) => {
+                const question = 'question' + (index + 1);
+                const selectedAnswer = formData.get(question);
+                const correctAnswer = correctAnswers[question];
+
+                group.querySelectorAll('.custom-control-input').forEach(input => {
+                    const label = group.querySelector(`label[for="${input.id}"]`);
+
+                    if (input.value === correctAnswer) {
+                        label.classList.add('correct-answer');
+                    }
+
+                    if (input.checked) {
+                        if (input.value === correctAnswer) {
+                            score++;
+                        } else {
+                            label.classList.add('wrong-answer');
+                            input.parentElement.classList.add('highlight');
+                        }
+                    }
+                });
+            });
+
+            alert('You scored ' + score + ' out of 5.');
+        });
+    </script>
+</body>
+</html>

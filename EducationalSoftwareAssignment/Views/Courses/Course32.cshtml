@@ -1,39 +1,110 @@
 ﻿@{
-    ViewData["Title"] = "Course32";
-
+    ViewData["Title"] = "Course 2: Multithreading and Concurrency";
 }
 
-<body class="bg-dark text-white">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
 
-    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;"> Course 2: Multithreading and Concurrency</header>
+        .header {
+            margin-top: 7%;
+            margin-bottom: 3%;
+            text-align: center;
+            font-size: 2.5em;
+            color: #e3f2fd;
+        }
 
-    <div>
-        <b> Δημιουργία και εκτέλεση νημάτων (threads)</b>
-        <div>
-            Τα νήματα μπορούν να δημιουργηθούν επεκτείνοντας την κλάση Thread ή υλοποιώντας το Runnable interface.
-        </div><br />
-        <picture>
-            <img src="/Images/thread.png" alt="Thread" style="width:auto;">
-        </picture><br />
-        <div>
-            Ή εφαρμόζοντας το Runnable:
-        </div><br />
-        <picture>
-            <img src="/Images/Runnable.png" alt="Runnable implementation" style="width:auto;">
-        </picture><br />
-        <b> Συγχρονισμός</b>
-        <div>
-            Ο συγχρονισμός αποτρέπει την ταυτόχρονη πρόσβαση σε κρίσιμα τμήματα του κώδικα, διασφαλίζοντας την ασφάλεια του νήματος.
-        </div><br />
-        <picture>
-            <img src="/Images/Synchronization.png" alt="Synchronization" style="width:auto;">
-        </picture><br />
-        <b> Executor Framework</b>
-        <div>
-            Το Executor Framework παρέχει έναν τρόπο διαχείρισης μιας δεξαμενής νημάτων.
-        </div><br />
-        <picture>
-            <img src="/Images/executor.png" alt="Executor" style="width:auto;">
-        </picture><br />
+        .content {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #81d4fa;
+            margin-bottom: 10px;
+        }
+
+        .section-content {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                border: 2px solid #81d4fa;
+                border-radius: 8px;
+            }
+
+        ul {
+            margin-left: 20px;
+            color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        Course 2: Multithreading and Concurrency
+    </header>
+
+    <div class="container content">
+        <div class="section">
+            <div class="section-title">Δημιουργία και εκτέλεση νημάτων (threads)</div>
+            <div class="section-content">
+                Τα νήματα μπορούν να δημιουργηθούν επεκτείνοντας την κλάση Thread ή υλοποιώντας το Runnable interface.
+            </div>
+            <div class="image-container">
+                <img src="/Images/thread.png" alt="Thread">
+            </div>
+            <div class="section-content">
+                Ή εφαρμόζοντας το Runnable:
+            </div>
+            <div class="image-container">
+                <img src="/Images/Runnable.png" alt="Runnable implementation">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Συγχρονισμός</div>
+            <div class="section-content">
+                Ο συγχρονισμός αποτρέπει την ταυτόχρονη πρόσβαση σε κρίσιμα τμήματα του κώδικα, διασφαλίζοντας την ασφάλεια του νήματος.
+            </div>
+            <div class="image-container">
+                <img src="/Images/Synchronization.png" alt="Synchronization">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Executor Framework</div>
+            <div class="section-content">
+                Το Executor Framework παρέχει έναν τρόπο διαχείρισης μιας δεξαμενής νημάτων.
+            </div>
+            <div class="image-container">
+                <img src="/Images/executor.png" alt="Executor">
+            </div>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>

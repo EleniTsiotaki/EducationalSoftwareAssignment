@@ -1,41 +1,107 @@
 ﻿@{
-    ViewData["Title"] = "Course21";
-
+    ViewData["Title"] = "Course 1: Advanced OOP Concepts";
 }
 
-<body class="bg-dark text-white">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
 
-    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;"> Course 1: Advanced OOP Concepts</header>
+        .header {
+            margin-top: 7%;
+            margin-bottom: 3%;
+            text-align: center;
+            font-size: 2.5em;
+            color: #e3f2fd;
+        }
 
-    <div>
-        <b> Κληρονομικότητα</b>
-        <div>
-            Η κληρονομικότητα επιτρέπει σε μια κλάση να κληρονομεί πεδία και μεθόδους από μια άλλη κλάση. 
-            Η υποκλάση (παιδί) επεκτείνει την υπερκλάση (γονέας).
-        </div><br />
-        <picture>
-            <img src="/Images/Inheritance.png" alt="Inheritance" style="width:auto;">
-        </picture><br />
-        <b> Πολυμορφισμός</b>
-        <div>
-            Ο πολυμορφισμός επιτρέπει στις μεθόδους να κάνουν διαφορετικά πράγματα με βάση το αντικείμενο στο οποίο δρα. 
-            Μπορεί να επιτευχθεί μέσω της παράκαμψης μεθόδου και της υπερφόρτωσης μεθόδου.
-        </div><br />
-        <picture>
-            <img src="/Images/Polymorphism.png" alt="Polymorphism" style="width:auto;">
-        </picture><br />
-        <b> Abstract κλάσεις and Interfaces</b>
-        <div>
-            Οι abstract κλάσεις δεν μπορούν να δημιουργηθούν και μπορεί να περιέχουν abstract μεθόδους (μέθοδοι χωρίς σώμα).
-        </div><br />
-        <picture>
-            <img src="/Images/abstract.png" alt="Abstract Class" style="width:auto;">
-        </picture><br />
-        <div>
-            Τα interfaces ορίζουν μεθόδους που πρέπει να εφαρμόσει μια κλάση.
-        </div><br />
-        <picture>
-        <img src="/Images/interface.png" alt="Interface" style="width:auto;">
-        </picture><br />
+        .content {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #81d4fa;
+            margin-bottom: 10px;
+        }
+
+        .section-content {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                border: 2px solid #81d4fa;
+                border-radius: 8px;
+            }
+    </style>
+</head>
+<body>
+    <header class="header">
+        Course 1: Advanced OOP Concepts
+    </header>
+
+    <div class="container content">
+        <div class="section">
+            <div class="section-title">Κληρονομικότητα</div>
+            <div class="section-content">
+                Η κληρονομικότητα επιτρέπει σε μια κλάση να κληρονομεί πεδία και μεθόδους από μια άλλη κλάση.
+                Η υποκλάση (παιδί) επεκτείνει την υπερκλάση (γονέας).
+            </div>
+            <div class="image-container">
+                <img src="/Images/Inheritance.png" alt="Inheritance">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Πολυμορφισμός</div>
+            <div class="section-content">
+                Ο πολυμορφισμός επιτρέπει στις μεθόδους να κάνουν διαφορετικά πράγματα με βάση το αντικείμενο στο οποίο δρα.
+                Μπορεί να επιτευχθεί μέσω της παράκαμψης μεθόδου και της υπερφόρτωσης μεθόδου.
+            </div>
+            <div class="image-container">
+                <img src="/Images/Polymorphism.png" alt="Polymorphism">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Abstract κλάσεις και Interfaces</div>
+            <div class="section-content">
+                Οι abstract κλάσεις δεν μπορούν να δημιουργηθούν και μπορεί να περιέχουν abstract μεθόδους (μέθοδοι χωρίς σώμα).
+            </div>
+            <div class="image-container">
+                <img src="/Images/abstract.png" alt="Abstract Class">
+            </div>
+            <div class="section-content">
+                Τα interfaces ορίζουν μεθόδους που πρέπει να εφαρμόσει μια κλάση.
+            </div>
+            <div class="image-container">
+                <img src="/Images/interface.png" alt="Interface">
+            </div>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>

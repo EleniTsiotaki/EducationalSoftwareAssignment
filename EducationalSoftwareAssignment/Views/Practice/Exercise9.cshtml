@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Exercise 8: Advanced Topics";
+    ViewData["Title"] = "Exercise 9: Java Collections Framework";
 }
 
 <!DOCTYPE html>
@@ -88,140 +88,166 @@
     <div class="container exercise-container">
         <h1>@ViewData["Title"]</h1>
         <div class="exercise-content">
-            <h3>Choose the correct answer for the following advanced Java topics:</h3>
+            <h3>Choose the correct answer for the following questions about Java Collections Framework:</h3>
 
             <form id="exercise-form">
                 <div class="form-group">
                     <p>
-                        1. How do you declare a generic class in Java?<br>
-                        <pre><code>public class Box&lt;T&gt; {
-    private T value;
+                        1. What is the correct way to declare a list in Java using `ArrayList`?<br>
+                        <pre><code>import java.util.ArrayList;
+import java.util.List;
 
-    public void setValue(T value) {
-        this.value = value;
-    }
-
-    public T getValue() {
-        return value;
+public class Main {
+    public static void main(String[] args) {
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
     }
 }</code></pre>
                     </p>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q1a" name="question1" value="A" class="custom-control-input">
-                        <label class="custom-control-label" for="q1a">public class Box&lt;T&gt; { ... }</label>
+                        <label class="custom-control-label" for="q1a">List&lt;String&gt; list = new ArrayList&lt;String&gt;();</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q1b" name="question1" value="B" class="custom-control-input">
-                        <label class="custom-control-label" for="q1b">public class Box { ... }</label>
+                        <label class="custom-control-label" for="q1b">ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;();</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q1c" name="question1" value="C" class="custom-control-input">
-                        <label class="custom-control-label" for="q1c">public class Box&lt;T&gt; extends T { ... }</label>
+                        <label class="custom-control-label" for="q1c">ArrayList list = new ArrayList();</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q1d" name="question1" value="D" class="custom-control-input">
-                        <label class="custom-control-label" for="q1d">public class Box&lt;T&gt; implements T { ... }</label>
+                        <label class="custom-control-label" for="q1d">List list = new ArrayList();</label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <p>
-                        2. Which of the following is a valid lambda expression in Java?<br>
-                        <pre><code>(x, y) -> x + y</code></pre>
+                        2. How do you add an element to a `HashSet`?<br>
+                        <pre><code>import java.util.HashSet;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+        Set&lt;String&gt; set = new HashSet&lt;&gt;();
+        set.add("Element");
+    }
+}</code></pre>
                     </p>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q2a" name="question2" value="A" class="custom-control-input">
-                        <label class="custom-control-label" for="q2a">(x, y) -> x + y</label>
+                        <label class="custom-control-label" for="q2a">set.add("Element");</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q2b" name="question2" value="B" class="custom-control-input">
-                        <label class="custom-control-label" for="q2b">x + y -> (x, y)</label>
+                        <label class="custom-control-label" for="q2b">set.put("Element");</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q2c" name="question2" value="C" class="custom-control-input">
-                        <label class="custom-control-label" for="q2c">x, y -> x + y</label>
+                        <label class="custom-control-label" for="q2c">set.addElement("Element");</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q2d" name="question2" value="D" class="custom-control-input">
-                        <label class="custom-control-label" for="q2d">x + y = (x, y)</label>
+                        <label class="custom-control-label" for="q2d">set.insert("Element");</label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <p>
-                        3. How do you use a stream to filter a list in Java?<br>
-                        <pre><code>List&lt;String&gt; list = Arrays.asList("a", "b", "c", "d");
-List&lt;String&gt; filtered = list.stream()
-    .filter(s -> s.compareTo("b") > 0)
-    .collect(Collectors.toList());</code></pre>
+                        3. What is the output of the following code snippet using `HashMap`?<br>
+                        <pre><code>import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) {
+        Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("Key1", 1);
+        map.put("Key2", 2);
+        System.out.println(map.get("Key1"));
+    }
+}</code></pre>
                     </p>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q3a" name="question3" value="A" class="custom-control-input">
-                        <label class="custom-control-label" for="q3a">list.stream().filter(s -> s.compareTo("b") > 0).collect(Collectors.toList())</label>
+                        <label class="custom-control-label" for="q3a">1</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q3b" name="question3" value="B" class="custom-control-input">
-                        <label class="custom-control-label" for="q3b">list.filter(s -> s.compareTo("b") > 0)</label>
+                        <label class="custom-control-label" for="q3b">2</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q3c" name="question3" value="C" class="custom-control-input">
-                        <label class="custom-control-label" for="q3c">list.stream().map(s -> s.compareTo("b") > 0).collect(Collectors.toList())</label>
+                        <label class="custom-control-label" for="q3c">Key1</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q3d" name="question3" value="D" class="custom-control-input">
-                        <label class="custom-control-label" for="q3d">list.stream().forEach(s -> s.compareTo("b") > 0).collect(Collectors.toList())</label>
+                        <label class="custom-control-label" for="q3d">null</label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <p>
-                        4. What is the use of the `Optional` class in Java?<br>
-                        <pre><code>Optional<String> optional = Optional.of("Hello");
-optional.ifPresent(s -> System.out.println(s));</code></pre>
+                        4. Which interface does `TreeSet` implement?<br>
+                        <pre><code>import java.util.TreeSet;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+        Set&lt;String&gt; set = new TreeSet&lt;&gt;();
+    }
+}</code></pre>
                     </p>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q4a" name="question4" value="A" class="custom-control-input">
-                        <label class="custom-control-label" for="q4a">To represent a value that may or may not be present</label>
+                        <label class="custom-control-label" for="q4a">Set</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q4b" name="question4" value="B" class="custom-control-input">
-                        <label class="custom-control-label" for="q4b">To handle exceptions</label>
+                        <label class="custom-control-label" for="q4b">List</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q4c" name="question4" value="C" class="custom-control-input">
-                        <label class="custom-control-label" for="q4c">To manage mutable objects</label>
+                        <label class="custom-control-label" for="q4c">Queue</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q4d" name="question4" value="D" class="custom-control-input">
-                        <label class="custom-control-label" for="q4d">To provide default values</label>
+                        <label class="custom-control-label" for="q4d">Map</label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <p>
-                        5. What is the output of the following Java code snippet?<br>
-                        <pre><code>public class Main {
+                        5. How do you iterate over a `HashMap`?<br>
+                        <pre><code>import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
     public static void main(String[] args) {
-        List&lt;String&gt; list = Arrays.asList("a", "b", "c", "d");
-        list.forEach(System.out::println);
+        Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("Key1", 1);
+        map.put("Key2", 2);
+
+        for (Map.Entry&lt;String, Integer&gt; entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
     }
 }</code></pre>
                     </p>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q5a" name="question5" value="A" class="custom-control-input">
-                        <label class="custom-control-label" for="q5a">a b c d</label>
+                        <label class="custom-control-label" for="q5a">Using `entrySet()` method</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q5b" name="question5" value="B" class="custom-control-input">
-                        <label class="custom-control-label" for="q5b">a b c d (each on a new line)</label>
+                        <label class="custom-control-label" for="q5b">Using `keySet()` method</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q5c" name="question5" value="C" class="custom-control-input">
-                        <label class="custom-control-label" for="q5c">a, b, c, d</label>
+                        <label class="custom-control-label" for="q5c">Using `values()` method</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="q5d" name="question5" value="D" class="custom-control-input">
-                        <label class="custom-control-label" for="q5d">a,b,c,d</label>
+                        <label class="custom-control-label" for="q5d">Using `iterator()` method</label>
                     </div>
                 </div>
 
@@ -240,7 +266,7 @@ optional.ifPresent(s -> System.out.println(s));</code></pre>
                 question2: 'A',
                 question3: 'A',
                 question4: 'A',
-                question5: 'B'
+                question5: 'A'
             };
 
             let score = 0;

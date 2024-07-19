@@ -1,5 +1,272 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Exercise 6: Exception Handling";
 }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .exercise-container {
+            padding: 30px;
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #bb86fc;
+            margin-bottom: 20px;
+        }
+
+        .exercise-content {
+            margin-top: 20px;
+        }
+
+            .exercise-content p {
+                font-size: 1.1em;
+                color: #b0b0b0;
+            }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #c5c5c5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #d4d4d4;
+        }
+
+        .custom-control-label {
+            color: #e0e0e0;
+        }
+
+        .btn-primary {
+            background-color: #bb86fc;
+            border-color: #bb86fc;
+        }
+
+            .btn-primary:hover {
+                background-color: #9f6fef;
+                border-color: #9f6fef;
+            }
+
+        .correct-answer {
+            color: #34d399;
+        }
+
+        .wrong-answer {
+            color: #f87171;
+        }
+
+        .highlight {
+            background-color: #333;
+            border: 2px solid #f87171;
+        }
+    </style>
+</head>
+<body>
+    <div class="container exercise-container">
+        <h1>@ViewData["Title"]</h1>
+        <div class="exercise-content">
+            <h3>Choose the correct answer for the following Exception Handling questions:</h3>
+
+            <form id="exercise-form">
+                <div class="form-group">
+                    <p>1. Which of the following is a checked exception in Java?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q1a" name="question1" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q1a">IOException</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q1b" name="question1" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q1b">NullPointerException</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q1c" name="question1" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q1c">ArithmeticException</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q1d" name="question1" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q1d">ArrayIndexOutOfBoundsException</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        2. What will be the output of the following code snippet?<br>
+                        <pre><code>public class Main {
+    public static void main(String[] args) {
+        try {
+            int[] arr = new int[5];
+            arr[5] = 10;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array index is out of bounds");
+        } catch (Exception e) {
+            System.out.println("An error occurred");
+        }
+    }
+}</code></pre>
+                    </p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q2a" name="question2" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q2a">Array index is out of bounds</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q2b" name="question2" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q2b">An error occurred</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q2c" name="question2" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q2c">Compilation error</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q2d" name="question2" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q2d">No output</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p>3. Which keyword is used to throw an exception in Java?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q3a" name="question3" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q3a">throws</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q3b" name="question3" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q3b">throw</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q3c" name="question3" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q3c">catch</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q3d" name="question3" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q3d">try</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        4. What will be the output of the following code snippet?<br>
+                        <pre><code>public class Main {
+    public static void main(String[] args) {
+        try {
+            int result = divide(10, 0);
+            System.out.println(result);
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero");
+        }
+    }
+
+    public static int divide(int a, int b) {
+        return a / b;
+    }
+}</code></pre>
+                    </p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q4a" name="question4" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q4a">10</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q4b" name="question4" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q4b">0</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q4c" name="question4" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q4c">Cannot divide by zero</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q4d" name="question4" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q4d">Compilation error</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p>5. Which block is always executed whether an exception is handled or not?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q5a" name="question5" value="A" class="custom-control-input">
+                        <label class="custom-control-label" for="q5a">try</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q5b" name="question5" value="B" class="custom-control-input">
+                        <label class="custom-control-label" for="q5b">catch</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q5c" name="question5" value="C" class="custom-control-input">
+                        <label class="custom-control-label" for="q5c">finally</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="q5d" name="question5" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="q5d">throw</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Answers</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('exercise-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const correctAnswers = {
+                question1: 'A',
+                question2: 'A',
+                question3: 'B',
+                question4: 'C',
+                question5: 'C'
+            };
+
+            const form = event.target;
+            const formData = new FormData(form);
+            let score = 0;
+
+            form.querySelectorAll('.form-group').forEach((group, index) => {
+                const question = 'question' + (index + 1);
+                const selectedAnswer = formData.get(question);
+                const correctAnswer = correctAnswers[question];
+
+                group.querySelectorAll('.custom-control-input').forEach(input => {
+                    const label = group.querySelector(`label[for="${input.id}"]`);
+
+                    if (input.value === correctAnswer) {
+                        label.classList.add('correct-answer');
+                    }
+
+                    if (input.checked) {
+                        if (input.value === correctAnswer) {
+                            score++;
+                        } else {
+                            label.classList.add('wrong-answer');
+                            input.parentElement.classList.add('highlight');
+                        }
+                    }
+                });
+            });
+
+            alert('You scored ' + score + ' out of 5.');
+        });
+    </script>
+</body>
+</html>

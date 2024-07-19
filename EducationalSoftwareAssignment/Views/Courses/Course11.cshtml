@@ -1,44 +1,113 @@
 ﻿@{
-    ViewData["Title"] = "Course11";
-
+    ViewData["Title"] = "Course 1: Java Basics";
 }
 
-<body class="bg-dark text-white">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
 
-    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;"> Course 1: Java Basics</header>
+        .header {
+            margin-top: 7%;
+            margin-bottom: 3%;
+            text-align: center;
+            font-size: 2.5em;
+            color: #e0f7fa;
+        }
 
-    <div>
-        <b> Εισαγωγή στη Java</b>
-        <div>
-            Η Java είναι μια γλώσσα προγραμματισμού υψηλού επιπέδου, βασισμένη σε κλάσεις, αντικειμενοστραφής, 
-            σχεδιασμένη να έχει όσο το δυνατόν λιγότερες εξαρτήσεις υλοποίησης. 
-            Χρησιμοποιείται ευρέως για την κατασκευή εφαρμογών εταιρικής κλίμακας. 
-            Η Java είναι γνωστή για την ικανότητά της "γράψτε μια φορά, εκτελέστε οπουδήποτε",
-            που σημαίνει ότι ο μεταγλωττισμένος κώδικας Java μπορεί να εκτελεστεί σε όλες τις πλατφόρμες 
-            που υποστηρίζουν Java χωρίς την ανάγκη εκ νέου μεταγλώττισης.
-        </div><br />
-        <b> Ρύθμιση Java Development Environment</b>
-        <div>
-            Για να ξεκινήσετε την ανάπτυξη σε Java, πρέπει να εγκαταστήσετε το Java Development Kit (JDK), 
-            το οποίο περιλαμβάνει το Java Runtime Environment (JRE) και εργαλεία ανάπτυξης όπως ο μεταγλωττιστής (javac). 
-            Τα δημοφιλή Περιβάλλοντα Ολοκληρωμένης Ανάπτυξης (IDE) για Java περιλαμβάνουν τα IntelliJ IDEA, Eclipse και NetBeans.
-        </div><br />
-        <b> Βασική σύνταξη και τύποι δεδομένων</b>
-        <div>
-            Τα προγράμματα Java είναι δομημένα ως κλάσεις. 
-            Η κύρια μέθοδος χρησιμεύει ως σημείο εισόδου για οποιαδήποτε εφαρμογή Java:
-        </div><br />
-        <picture>
-            <img src="/Images/HelloWorld.png" alt="Hello World" style="width:auto;">
-        </picture><br />
-        <b> Συνήθεις τύποι δεδομένων στην Java:</b>
-        <div>
-            <ul style="list-style-type: square;">
-                <li>int για ακέραιους αριθμούς</li>
-                <li> double για αριθμούς κινητής υποδιαστολής</li>
-                <li>char για χαρακτήρες</li>
-                <li>boolean για τιμές true/false</li>
-            </ul>
-        </div><br />
+        .content {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #81d4fa;
+            margin-bottom: 10px;
+        }
+
+        .section-content {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .list-square {
+            list-style-type: square;
+        }
+
+        .image-container img {
+            border: 2px solid #81d4fa;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        Course 1: Java Basics
+    </header>
+
+    <div class="container content">
+        <div class="section">
+            <div class="section-title">Εισαγωγή στη Java</div>
+            <div class="section-content">
+                Η Java είναι μια γλώσσα προγραμματισμού υψηλού επιπέδου, βασισμένη σε κλάσεις, αντικειμενοστραφής,
+                σχεδιασμένη να έχει όσο το δυνατόν λιγότερες εξαρτήσεις υλοποίησης.
+                Χρησιμοποιείται ευρέως για την κατασκευή εφαρμογών εταιρικής κλίμακας.
+                Η Java είναι γνωστή για την ικανότητά της "γράψτε μια φορά, εκτελέστε οπουδήποτε",
+                που σημαίνει ότι ο μεταγλωττισμένος κώδικας Java μπορεί να εκτελεστεί σε όλες τις πλατφόρμες
+                που υποστηρίζουν Java χωρίς την ανάγκη εκ νέου μεταγλώττισης.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Ρύθμιση Java Development Environment</div>
+            <div class="section-content">
+                Για να ξεκινήσετε την ανάπτυξη σε Java, πρέπει να εγκαταστήσετε το Java Development Kit (JDK),
+                το οποίο περιλαμβάνει το Java Runtime Environment (JRE) και εργαλεία ανάπτυξης όπως ο μεταγλωττιστής (javac).
+                Τα δημοφιλή Περιβάλλοντα Ολοκληρωμένης Ανάπτυξης (IDE) για Java περιλαμβάνουν τα IntelliJ IDEA, Eclipse και NetBeans.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Βασική σύνταξη και τύποι δεδομένων</div>
+            <div class="section-content">
+                Τα προγράμματα Java είναι δομημένα ως κλάσεις.
+                Η κύρια μέθοδος χρησιμεύει ως σημείο εισόδου για οποιαδήποτε εφαρμογή Java:
+            </div>
+
+            <div class="image-container text-center">
+                <img src="/Images/HelloWorld.png" alt="Hello World">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Συνήθεις τύποι δεδομένων στην Java</div>
+            <div class="section-content">
+                <ul class="list-square">
+                    <li>int για ακέραιους αριθμούς</li>
+                    <li>double για αριθμούς κινητής υποδιαστολής</li>
+                    <li>char για χαρακτήρες</li>
+                    <li>boolean για τιμές true/false</li>
+                </ul>
+            </div>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>

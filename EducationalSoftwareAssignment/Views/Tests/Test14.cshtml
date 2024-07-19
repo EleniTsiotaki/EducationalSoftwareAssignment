@@ -1,5 +1,221 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Final Test - Beginner Level";
 }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        #quizForm {
+            display: none;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .question-block {
+            padding: 10px;
+            margin: 10px auto;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: #333;
+            width: 80%; /* Adjust the width here */
+            max-width: 600px; /* Set a maximum width for larger screens */
+        }
+
+            .question-block p {
+                margin: 0;
+                font-size: 1rem;
+                color: #ccc;
+                text-align: left; /* Align questions to the left */
+                padding-left: 15px; /* Add padding for better alignment */
+            }
+
+        .custom-control {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #ccc;
+            padding-left: 15px; /* Align options with the question text */
+        }
+
+        .custom-control-input {
+            margin-right: 8px;
+        }
+
+        .custom-control-label {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;">@ViewData["Title"]</header>
+    <div class="container pb-5">
+        <button id="begin-test-btn" type="button" class="btn btn-primary">Begin Test</button>
+        <form id="quizForm" class="mt-5">
+            <div class="form-group">
+                <div class="question-block">
+                    <p>1. True/False: In Java, you must initialize a local variable before using it.</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question1" value="True">
+                        <label class="custom-control-label">True</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question1" value="False">
+                        <label class="custom-control-label">False</label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>2. Default value of a boolean variable in Java?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question2" value="A">
+                        <label class="custom-control-label">true</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question2" value="B">
+                        <label class="custom-control-label">false</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question2" value="C">
+                        <label class="custom-control-label">0</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question2" value="D">
+                        <label class="custom-control-label">null</label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>3. Control structure for code blocks that execute while a condition is true?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="A">
+                        <label class="custom-control-label">if</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="B">
+                        <label class="custom-control-label">switch</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="C">
+                        <label class="custom-control-label">for</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question3" value="D">
+                        <label class="custom-control-label">while</label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>4. True/False: A for loop in Java can iterate over arrays and collections.</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question4" value="True">
+                        <label class="custom-control-label">True</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question4" value="False">
+                        <label class="custom-control-label">False</label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>5. What does the `this` keyword refer to in a Java class?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question5" value="A">
+                        <label class="custom-control-label">The class itself</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question5" value="B">
+                        <label class="custom-control-label">The parent class</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question5" value="C">
+                        <label class="custom-control-label">The current instance of the class</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question5" value="D">
+                        <label class="custom-control-label">The main method</label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button id="grade-quiz-btn" type="button" class="btn btn-success" onclick="gradeQuiz()">Grade Quiz</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('begin-test-btn').addEventListener('click', function () {
+            this.style.display = 'none';
+            document.getElementById('quizForm').style.display = 'block';
+            document.getElementById('grade-quiz-btn').style.display = 'inline-block';
+        });
+
+        async function gradeQuiz() {
+            document.getElementById('grade-quiz-btn').style.display = 'none';
+            document.getElementById('begin-test-btn').style.display = 'inline-block';
+            document.getElementById('quizForm').style.display = 'none';
+
+            const correctAnswers = {
+                question1: "True",
+                question2: "B",
+                question3: "D",
+                question4: "True",
+                question5: "C"
+            };
+
+            const question1 = document.querySelector('input[name="question1"]:checked');
+            const question2 = document.querySelector('input[name="question2"]:checked');
+            const question3 = document.querySelector('input[name="question3"]:checked');
+            const question4 = document.querySelector('input[name="question4"]:checked');
+            const question5 = document.querySelector('input[name="question5"]:checked');
+
+            const answer1 = question1 ? question1.value : null;
+            const answer2 = question2 ? question2.value : null;
+            const answer3 = question3 ? question3.value : null;
+            const answer4 = question4 ? question4.value : null;
+            const answer5 = question5 ? question5.value : null;
+
+            const form = document.getElementById('quizForm');
+            let score = 0;
+            let all_correct = true;
+            for (const [question, answer] of Object.entries(correctAnswers)) {
+                const selected = form.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answer) {
+                    score++;
+                } else {
+                    all_correct = false;
+                }
+            }
+
+            const testId = 4;
+            const response = await fetch('/Tests/PostTestResult', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    TestId: testId,
+                    Score: all_correct ? 2.5 : 0,
+                    ElapsedTime: 'null',
+                    Answer1: answer1,
+                    Answer2: answer2,
+                    Answer3: answer3,
+                    Answer4: answer4,
+                    Answer5: answer5,
+                    IsCorrect: all_correct ? 1 : 0
+                })
+            });
+
+            if (response.ok) {
+                alert(all_correct ? 'Quiz graded successfully!' : 'Not all answers are correct. The quiz result will not be saved.');
+            } else {
+                alert('Failed to save the quiz result.');
+            }
+        }
+    </script>
+</body>
+</html>

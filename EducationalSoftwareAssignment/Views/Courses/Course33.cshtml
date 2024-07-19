@@ -1,37 +1,99 @@
 ﻿@{
-    ViewData["Title"] = "Course33";
-
+    ViewData["Title"] = "Course 3: Java Memory Management and Garbage Collection";
 }
 
-<body class="bg-dark text-white">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
 
-    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;"> Course 3: Java Memory Management and Garbage Collection</header>
+        .header {
+            margin-top: 7%;
+            margin-bottom: 3%;
+            text-align: center;
+            font-size: 2.5em;
+            color: #e3f2fd;
+        }
 
-    <div>
-        <b> Μοντέλο μνήμης</b>
-        <div>
-            Το μοντέλο μνήμης της Java διαιρεί τη μνήμη σε διάφορες περιοχές: Σωρός (Heap), Στοίβα (Stack), Κώδικας και Δεδομένα.
-            Τα αντικείμενα εκχωρούνται στο σωρό και οι τοπικές μεταβλητές και οι κλήσεις μεθόδων διαχειρίζονται στη στοίβα.
-        </div><br />
-        <b> Μηχανισμοί συλλογής σκουπιδιών (Garbage Collection Mechanisms)</b>
-        <div>
-            Η συλλογή σκουπιδιών στην Java ανακτά αυτόματα τη μνήμη που χρησιμοποιείται από αντικείμενα που δεν είναι πλέον προσβάσιμα. 
-            Οι κοινοί αλγόριθμοι περιλαμβάνουν:
-        </div><br />
-        <div>
-            <ul style="list-style-type: square;">
+        .content {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #81d4fa;
+            margin-bottom: 10px;
+        }
+
+        .section-content {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin-left: 20px;
+            color: #b0b0b0;
+        }
+
+            ul li {
+                margin-bottom: 10px;
+            }
+    </style>
+</head>
+<body>
+    <header class="header">
+        Course 3: Java Memory Management and Garbage Collection
+    </header>
+
+    <div class="container content">
+        <div class="section">
+            <div class="section-title">Μοντέλο μνήμης</div>
+            <div class="section-content">
+                Το μοντέλο μνήμης της Java διαιρεί τη μνήμη σε διάφορες περιοχές: Σωρός (Heap), Στοίβα (Stack), Κώδικας και Δεδομένα.
+                Τα αντικείμενα εκχωρούνται στο σωρό και οι τοπικές μεταβλητές και οι κλήσεις μεθόδων διαχειρίζονται στη στοίβα.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Μηχανισμοί συλλογής σκουπιδιών (Garbage Collection Mechanisms)</div>
+            <div class="section-content">
+                Η συλλογή σκουπιδιών στην Java ανακτά αυτόματα τη μνήμη που χρησιμοποιείται από αντικείμενα που δεν είναι πλέον προσβάσιμα.
+                Οι κοινοί αλγόριθμοι περιλαμβάνουν:
+            </div>
+            <ul>
                 <li>Mark-and-Sweep: Επισήμανση προσβάσιμων αντικειμένων, σάρωση αντικειμένων χωρίς αναφορά.</li>
                 <li>Copying: Χρησιμοποιείται στη Νέα Γενιά, αρχές αντιγραφής ζωντανών αντικειμένων.</li>
                 <li>Mark-Sweep-Compact: Συνδυάζει τη σήμανση, το σκούπισμα και τη συμπίεση για τη μείωση του κατακερματισμού.</li>
                 <li>Generational Garbage Collection: Young Generation (Eden, Survivor spaces), Old Generation management.</li>
                 <li>Parallel Garbage Collection: Αυτή η τεχνική περιλαμβάνει τη χρήση πολλαπλών νημάτων για την εκτέλεση συλλογής σκουπιδιών ταυτόχρονα με τα νήματα της εφαρμογής.</li>
-                <li>Concurrent  Garbage Collection: Σε αντίθεση με την παράλληλη συλλογή απορριμμάτων, η ταυτόχρονη συλλογή απορριμμάτων στοχεύει να ελαχιστοποιήσει τους χρόνους παύσης 
-                    εκτελώντας τη συλλογή απορριμμάτων ταυτόχρονα με τα νήματα της εφαρμογής. 
-                    Λειτουργεί παρεμβάλλοντας τις φάσεις συλλογής σκουπιδιών με την εκτέλεση του προγράμματος.</li>
-                <li>Incremental  Garbage Collection: Παρόμοια με την ταυτόχρονη συλλογή σκουπιδιών, η σταδιακή συλλογή απορριμμάτων διασπά τη διαδικασία συλλογής σκουπιδιών 
-                    σε μικρότερα μέρη (αυξήσεις) που παρεμβάλλονται με την εκτέλεση του προγράμματος. 
-                    Βοηθά στη μείωση της διάρκειας των παύσεων επιτρέποντας στο πρόγραμμα να εκτελείται μεταξύ αυτών των προσαυξήσεων.</li>
+                <li>
+                    Concurrent Garbage Collection: Σε αντίθεση με την παράλληλη συλλογή απορριμμάτων, η ταυτόχρονη συλλογή απορριμμάτων στοχεύει να ελαχιστοποιήσει τους χρόνους παύσης
+                    εκτελώντας τη συλλογή απορριμμάτων ταυτόχρονα με τα νήματα της εφαρμογής.
+                    Λειτουργεί παρεμβάλλοντας τις φάσεις συλλογής σκουπιδιών με την εκτέλεση του προγράμματος.
+                </li>
+                <li>
+                    Incremental Garbage Collection: Παρόμοια με την ταυτόχρονη συλλογή σκουπιδιών, η σταδιακή συλλογή απορριμμάτων διασπά τη διαδικασία συλλογής σκουπιδιών
+                    σε μικρότερα μέρη (αυξήσεις) που παρεμβάλλονται με την εκτέλεση του προγράμματος.
+                    Βοηθά στη μείωση της διάρκειας των παύσεων επιτρέποντας στο πρόγραμμα να εκτελείται μεταξύ αυτών των προσαυξήσεων.
+                </li>
             </ul>
-        </div><br />
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>

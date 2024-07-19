@@ -1,56 +1,125 @@
 ﻿@{
-    ViewData["Title"] = "Course23";
-
+    ViewData["Title"] = "Course 3: Collections Framework";
 }
 
-<body class="bg-dark text-white">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
 
-    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;"> Course 3: Collections Framework</header>
+        .header {
+            margin-top: 7%;
+            margin-bottom: 3%;
+            text-align: center;
+            font-size: 2.5em;
+            color: #e3f2fd;
+        }
 
-    <div>
-        <b> List, Set και Map Interfaces</b>
-        <div>
-            Το Java Collections Framework παρέχει ένα σύνολο interfaces και κλάσεων για αποθήκευση και χειρισμό ομάδων δεδομένων ως ενιαία μονάδα. Τα βασικά interfaces περιλαμβάνουν:
-        </div><br />
-        <div>
-            <ul style="list-style-type: square;">
-                <li>List: Μία διατεταγμένη συλλογή (π.χ. ArrayList, LinkedList) </li>
+        .content {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #81d4fa;
+            margin-bottom: 10px;
+        }
+
+        .section-content {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                border: 2px solid #81d4fa;
+                border-radius: 8px;
+            }
+
+        ul {
+            margin-left: 20px;
+            color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        Course 3: Collections Framework
+    </header>
+
+    <div class="container content">
+        <div class="section">
+            <div class="section-title">List, Set και Map Interfaces</div>
+            <div class="section-content">
+                Το Java Collections Framework παρέχει ένα σύνολο interfaces και κλάσεων για αποθήκευση και χειρισμό ομάδων δεδομένων ως ενιαία μονάδα. Τα βασικά interfaces περιλαμβάνουν:
+            </div>
+            <ul>
+                <li>List: Μία διατεταγμένη συλλογή (π.χ. ArrayList, LinkedList)</li>
                 <li>Set: Μια συλλογή που δεν επιτρέπει διπλότυπα στοιχεία (π.χ. HashSet, TreeSet)</li>
                 <li>Map: Μια συλλογή ζευγών κλειδιών-τιμών (π.χ. HashMap, TreeMap)</li>
-            </ul><br />
-        </div><br />
-        <b> Εγαρμογές σε ArrayList, LinkedList, HashSet και HashMap</b>
-        <div>
-            <ul style="list-style-type: square;">
-                <li>ArrayList: Ένας πίνακας με δυνατότητα αλλαγής μεγέθους, που επιτρέπει την πρόσβαση με ευρετήριο σε στοιχεία.</li>
-            </ul><br />
-        </div><br />
-        <picture>
-            <img src="/Images/ArrayList.png" alt="Array List" style="width:auto;">
-        </picture><br />
-        <div>
-            <ul style="list-style-type: square;">
-                <li>LinkedList: Τα στοιχεία συνδέονται διπλά, παρέχοντας γρήγορη εισαγωγή και διαγραφή.</li>
-            </ul><br />
-        </div><br />
-        <picture>
-            <img src="/Images/LinkedList.png" alt="Linked List" style="width:auto;">
-        </picture><br />
-        <div>
-            <ul style="list-style-type: square;">
-                <li>HashSet: Χρησιμοποιεί έναν πίνακα κατακερματισμού για αποθήκευση, διασφαλίζοντας ότι δεν υπάρχουν διπλότυπα και επιτρέποντας γρήγορη πρόσβαση.</li>
-            </ul><br />
-        </div><br />
-        <picture>
-            <img src="/Images/HashSet.png" alt="Hash Set" style="width:auto;">
-        </picture><br />
-        <div>
-            <ul style="list-style-type: square;">
-                <li>HashMap: Υλοποιεί το Map interface χρησιμοποιώντας έναν πίνακα κατακερματισμού, επιτρέποντας γρήγορη ανάκτηση με κλειδί</li>
-            </ul><br />
-        </div><br />
-        <picture>
-            <img src="/Images/HashMap.png" alt="Hash Map" style="width:auto;">
-        </picture><br />
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Εφαρμογές σε ArrayList, LinkedList, HashSet και HashMap</div>
+            <div class="section-content">
+                <ul>
+                    <li>ArrayList: Ένας πίνακας με δυνατότητα αλλαγής μεγέθους, που επιτρέπει την πρόσβαση με ευρετήριο σε στοιχεία.</li>
+                </ul>
+            </div>
+            <div class="image-container">
+                <img src="/Images/ArrayList.png" alt="Array List">
+            </div>
+
+            <div class="section-content">
+                <ul>
+                    <li>LinkedList: Τα στοιχεία συνδέονται διπλά, παρέχοντας γρήγορη εισαγωγή και διαγραφή.</li>
+                </ul>
+            </div>
+            <div class="image-container">
+                <img src="/Images/LinkedList.png" alt="Linked List">
+            </div>
+
+            <div class="section-content">
+                <ul>
+                    <li>HashSet: Χρησιμοποιεί έναν πίνακα κατακερματισμού για αποθήκευση, διασφαλίζοντας ότι δεν υπάρχουν διπλότυπα και επιτρέποντας γρήγορη πρόσβαση.</li>
+                </ul>
+            </div>
+            <div class="image-container">
+                <img src="/Images/HashSet.png" alt="Hash Set">
+            </div>
+
+            <div class="section-content">
+                <ul>
+                    <li>HashMap: Υλοποιεί το Map interface χρησιμοποιώντας έναν πίνακα κατακερματισμού, επιτρέποντας γρήγορη ανάκτηση με κλειδί</li>
+                </ul>
+            </div>
+            <div class="image-container">
+                <img src="/Images/HashMap.png" alt="Hash Map">
+            </div>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>

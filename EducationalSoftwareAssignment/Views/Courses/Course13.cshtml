@@ -1,40 +1,106 @@
 ﻿@{
-    ViewData["Title"] = "Course13";
-
+    ViewData["Title"] = "Course 3: Object-Oriented Programming";
 }
 
-<body class="bg-dark text-white">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
 
-    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;"> Course 3: Object-Oriented Programming</header>
+        .header {
+            margin-top: 7%;
+            margin-bottom: 3%;
+            text-align: center;
+            font-size: 2.5em;
+            color: #e0f7fa;
+        }
 
-    <div>
-        <b> Κλάσεις και αντικείμενα</b>
-        <div>
-            Η Java είναι μια αντικειμενοστραφή γλώσσα, που σημαίνει ότι μοντελοποιεί οντότητες του πραγματικού κόσμου ως αντικείμενα. 
-            Μια κλάση είναι ένα προσχέδιο για αντικείμενα, που ορίζει πεδία και μεθόδους.
-        </div><br />
-        <picture>
-            <img src="/Images/class.png" alt="Class" style="width:auto;">
-        </picture><br />
-        <div>
-            Τα αντικείμενα είναι στηγμιότυπα των κλάσεων.
-        </div><br />
-        <picture>
-            <img src="/Images/object.png" alt="Object" style="width:auto;">
-        </picture><br />
-        <b> Μέθοδοι</b>
-        <div>
-            Οι μέθοδοι ορίζουν συμπεριφορές για αντικείμενα και μπορούν να επιστρέψουν τιμές.
-        </div><br />
-        <picture>
-            <img src="/Images/method.png" alt="Method" style="width:auto;">
-        </picture><br />
-        <b> Constructors</b>
-        <div>
-            Οι constructors αρχικοποιούν νέα αντικείμενα. Έχουν το ίδιο όνομα με την κλάση και δεν υπάρχει τύπος επιστροφής.
-        </div><br />
-        <picture>
-            <img src="/Images/constructor.png" alt="Constructors" style="width:auto;">
-        </picture><br />
+        .content {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #81d4fa;
+            margin-bottom: 10px;
+        }
+
+        .section-content {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                border: 2px solid #81d4fa;
+                border-radius: 8px;
+            }
+    </style>
+</head>
+<body>
+    <header class="header">
+        Course 3: Object-Oriented Programming
+    </header>
+
+    <div class="container content">
+        <div class="section">
+            <div class="section-title">Κλάσεις και αντικείμενα</div>
+            <div class="section-content">
+                Η Java είναι μια αντικειμενοστραφή γλώσσα, που σημαίνει ότι μοντελοποιεί οντότητες του πραγματικού κόσμου ως αντικείμενα.
+                Μια κλάση είναι ένα προσχέδιο για αντικείμενα, που ορίζει πεδία και μεθόδους.
+            </div>
+            <div class="image-container">
+                <img src="/Images/class.png" alt="Class">
+            </div>
+            <div class="section-content">
+                Τα αντικείμενα είναι στιγμιότυπα των κλάσεων.
+            </div>
+            <div class="image-container">
+                <img src="/Images/object.png" alt="Object">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Μέθοδοι</div>
+            <div class="section-content">
+                Οι μέθοδοι ορίζουν συμπεριφορές για αντικείμενα και μπορούν να επιστρέψουν τιμές.
+            </div>
+            <div class="image-container">
+                <img src="/Images/method.png" alt="Method">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Constructors</div>
+            <div class="section-content">
+                Οι constructors αρχικοποιούν νέα αντικείμενα. Έχουν το ίδιο όνομα με την κλάση και δεν υπάρχει τύπος επιστροφής.
+            </div>
+            <div class="image-container">
+                <img src="/Images/constructor.png" alt="Constructors">
+            </div>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>
