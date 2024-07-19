@@ -164,7 +164,9 @@ namespace EducationalSoftwareAssignment.Controllers
             {
                 progress.TotalGrade = totalGrade;
                 progress.AverageGrade = averageGrade;
-                progress.SucceededTests = testsTaken;
+                progress.SucceededTests = succeededTests;
+                progress.FailedTests = failedTests;
+                progress.TotalTime = time;
                 progress.IntermediateTests = intermediateTests;
                 progress.AdvancedTests = advancedTests;
                 progress.BeginnerTests = beginnerTests;
