@@ -16,5 +16,16 @@
         public double AdvancedAverage { get; set; }
         public double TotalTime { get; set; }
         public DateTime DateTime { get; set; }
+        public int Course11Visits { get; set; }
+        public int Course12Visits { get; set; }
+        public int Course13Visits { get; set; }
+        public int Course21Visits { get; set; }
+        public int Course22Visits { get; set; }
+        public int Course23Visits { get; set; }
+        public int Course31Visits { get; set; }
+        public int Course32Visits { get; set; }
+        public int Course33Visits { get; set; }
+
+
     }
 }

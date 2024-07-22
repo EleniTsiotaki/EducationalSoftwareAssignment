@@ -64,19 +64,32 @@
         new { Title = "Exercise 8: Advanced Topics", Description = "In this exercise, you will learn about some advanced topics in Java.", Url = "/Practice/Exercise8" },
         new { Title = "Exercise 9: Java Collections Framework", Description = "In this exercise, you will learn about the Java Collections Framework, including lists, sets, and maps.", Url = "/Practice/Exercise9" }
         };
+
+            // Assuming ViewBag.ExerciseVisibility contains a boolean array that matches the length of exercises array
             var visibility = (bool[])ViewBag.ExerciseVisibility;
+
+            bool hasVisibleExercises = visibility.Any(v => v);
         }
 
-        @for (int i = 0; i < exercises.Length; i++)
+        @if (hasVisibleExercises)
         {
-            if (visibility[i])
+            @for (int i = 0; i < exercises.Length; i++)
             {
-                <div class="exercise">
-                    <h2>@exercises[i].Title</h2>
-                    <p>@exercises[i].Description</p>
-                    <a class="btn btn-primary" href="@exercises[i].Url">Start Exercise</a>
-                </div>
+                if (visibility[i])
+                {
+                    <div class="exercise">
+                        <h2>@exercises[i].Title</h2>
+                        <p>@exercises[i].Description</p>
+                        <a class="btn btn-primary" href="@exercises[i].Url">Start Exercise</a>
+                    </div>
+                }
             }
+        }
+        else
+        {
+            <div class="alert alert-info text-center mt-3">
+                No exercises are available at the moment. <br />Complete the tests in the course section and if you don't finish them in 30 minutes come back for practice!
+            </div>
         }
     </div>
     <br />

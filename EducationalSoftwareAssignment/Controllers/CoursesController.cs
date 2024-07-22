@@ -44,49 +44,101 @@ namespace EducationalSoftwareAssignment.Controllers
 
             return View(test);
         }
-        public IActionResult Course11()
+        public async Task<IActionResult> Course11()
         {
+            await IncrementVisitCount("Course11Visits");
+
             return View();
         }
 
-        public IActionResult Course12()
+        public async Task<IActionResult> Course12()
         {
+            await IncrementVisitCount("Course12Visits");
+
             return View();
         }
 
-        public IActionResult Course13()
+        public async Task<IActionResult> Course13()
         {
+            await IncrementVisitCount("Course13Visits");
+
             return View();
         }
 
-        public IActionResult Course21()
+        public async Task<IActionResult> Course21()
         {
+            await IncrementVisitCount("Course21Visits");
+
             return View();
         }
 
-        public IActionResult Course22()
+        public async Task<IActionResult> Course22()
         {
+            await IncrementVisitCount("Course22Visits");
+
             return View();
         }
 
-        public IActionResult Course23()
+        public async Task<IActionResult> Course23()
         {
+            await IncrementVisitCount("Course23Visits");
+
             return View();
         }
 
-        public IActionResult Course31()
+        public async Task<IActionResult> Course31()
         {
+            await IncrementVisitCount("Course31Visits");
+
             return View();
         }
 
-        public IActionResult Course32()
+        public async Task<IActionResult> Course32()
         {
+            await IncrementVisitCount("Course32Visits");
+
             return View();
         }
 
-        public IActionResult Course33()
+        public async Task<IActionResult> Course33()
         {
+            await IncrementVisitCount("Course33Visits");
+
             return View();
+        }
+
+        private async Task IncrementVisitCount(string courseVisitProperty)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                RedirectToAction("Login", "Account");
+                return;
+            }
+
+            var progress = await _context.Progress
+                                          .FirstOrDefaultAsync(p => p.Username == user.UserName);
+
+            if (progress == null)
+            {
+                progress = new Progress
+                {
+                    Id = Guid.NewGuid(),
+                    Username = user.UserName
+                    // Initialize other properties as needed
+                };
+                _context.Progress.Add(progress);
+            }
+
+            // Use reflection to set the visit count property dynamically
+            var property = progress.GetType().GetProperty(courseVisitProperty);
+            if (property != null)
+            {
+                var currentValue = (int)property.GetValue(progress);
+                property.SetValue(progress, currentValue + 1);
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }
