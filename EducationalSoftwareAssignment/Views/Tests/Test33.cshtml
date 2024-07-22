@@ -195,14 +195,7 @@
                     body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}`, Answer1: answer1, Answer2: answer2, Answer3: answer3, Answer4: answer4, Answer5: answer5, IsCorrect: 0 })
                 });
 
-                if (response.ok) {
-                    alert('Quiz graded successfully!');
-                    // Optionally, update UI to show that the test is completed or unlock Test12
-                    // Example: Reload page or update UI elements
-                } else {
-                    alert('Failed to save the quiz time and score.');
-                }
-                alert('Not all answers are correct. The quiz result will not be saved.');
+                alert('Not all answers are correct. Try again!');
             }
 
         }

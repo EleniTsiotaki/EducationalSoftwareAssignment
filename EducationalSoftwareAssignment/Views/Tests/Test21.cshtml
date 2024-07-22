@@ -20,8 +20,46 @@
             text-align: center;
         }
 
+        #quizForm {
+            display: none;
+        }
+
         .container {
             text-align: center;
+        }
+
+        .question-block {
+            padding: 10px;
+            margin: 10px auto;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: #333;
+            width: 80%;
+            max-width: 600px;
+        }
+
+            .question-block p {
+                margin: 0;
+                font-size: 1rem;
+                color: #ccc;
+                text-align: left;
+                padding-left: 15px;
+            }
+
+        .custom-control {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #ccc;
+            padding-left: 15px;
+        }
+
+        .custom-control-input {
+            margin-right: 8px;
+        }
+
+        .custom-control-label {
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -32,64 +70,78 @@
         <div id="timer">Time: <span id="time-elapsed">0:00</span></div>
         <form id="quizForm" class="mt-5">
             <div class="form-group">
-                <p>1. An abstract class can have both abstract and concrete methods.</p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question1" value="True">
-                    <label class="custom-control-label">True</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question1" value="False">
-                    <label class="custom-control-label">False</label>
+                <div class="question-block">
+
+                    <p>1. An abstract class can have both abstract and concrete methods.</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question1" value="True">
+                        <label class="custom-control-label">True</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question1" value="False">
+                        <label class="custom-control-label">False</label>
+                    </div>
                 </div>
 
-                <p>
-                    2. Which of the following is true about interfaces in Java?
-                </p>
-                <div class="custom-control custom-radio ">
-                    <input type="radio" class="custom-control-input" name="question2" value="A">
-                    <label class="custom-control-label">An interface can extend multiple interfaces.</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="B">
-                    <label class="custom-control-label">An interface can implement another interface.</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="C">
-                    <label class="custom-control-label">An interface can have private methods.</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question2" value="D">
-                    <label class="custom-control-label">An interface can have constructors.</label>
+                <div class="question-block">
+
+                    <p>
+                        2. Which of the following is true about interfaces in Java?
+                    </p>
+                    <div class="custom-control custom-radio ">
+                        <input type="radio" class="custom-control-input" name="question2" value="A">
+                        <label class="custom-control-label">An interface can extend multiple interfaces.</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question2" value="B">
+                        <label class="custom-control-label">An interface can implement another interface.</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question2" value="C">
+                        <label class="custom-control-label">An interface can have private methods.</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question2" value="D">
+                        <label class="custom-control-label">An interface can have constructors.</label>
+                    </div>
                 </div>
 
-                <p>3. A subclass can inherit private members of its superclass.</p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="True">
-                    <label class="custom-control-label">True</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="False">
-                    <label class="custom-control-label">False</label>
+                <div class="question-block">
+
+
+                    <p>3. A subclass can inherit private members of its superclass.</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="True">
+                        <label class="custom-control-label">True</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="False">
+                        <label class="custom-control-label">False</label>
+                    </div>
                 </div>
 
-                <p>
-                    4. Which of the following best describes polymorphism in Java?
-                </p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="A">
-                    <label class="custom-control-label">A class having multiple methods with the same name but different parameters.</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="B">
-                    <label class="custom-control-label">An object behaving differently in different contexts.</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="C">
-                    <label class="custom-control-label">A class having multiple constructors.</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question4" value="D">
-                    <label class="custom-control-label">A subclass inheriting methods from a superclass.</label>
+
+                <div class="question-block">
+
+                    <p>
+                        4. Which of the following best describes polymorphism in Java?
+                    </p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question4" value="A">
+                        <label class="custom-control-label">A class having multiple methods with the same name but different parameters.</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question4" value="B">
+                        <label class="custom-control-label">An object behaving differently in different contexts.</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question4" value="C">
+                        <label class="custom-control-label">A class having multiple constructors.</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question4" value="D">
+                        <label class="custom-control-label">A subclass inheriting methods from a superclass.</label>
+                    </div>
                 </div>
 
             </div>
@@ -193,14 +245,7 @@
                     body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}`, Answer1: answer1, Answer2: answer2, Answer3: answer3, Answer4: answer4, Answer5: answer5, IsCorrect: 0 })
                 });
 
-                if (response.ok) {
-                    alert('Quiz graded successfully!');
-                    // Optionally, update UI to show that the test is completed or unlock Test12
-                    // Example: Reload page or update UI elements
-                } else {
-                    alert('Failed to save the quiz time and score.');
-                }
-                alert('Not all answers are correct. The quiz result will not be saved.');
+                alert('Not all answers are correct. Try again!');
             }
 
         }

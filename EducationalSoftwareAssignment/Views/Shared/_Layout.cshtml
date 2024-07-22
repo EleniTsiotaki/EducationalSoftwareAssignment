@@ -6,24 +6,37 @@
     <title>@ViewData["Title"] - LearnJava</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        .arrow {
+            border: solid grey;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 3px;
+            margin-bottom: 3.5%;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+        }
+
+            .arrow:hover {
+                border-color: darkgrey;
+            }
+
+        .footer {
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
-<style>
-    .arrow {
-        border: solid grey;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 3px;
-        margin-bottom: 3.5%;
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-
-    }
-
-    .arrow:hover{
-        border-color: solid darkgrey;
-
-    }
-</style>
 <body class="bg-dark text-white">
     <!-- Top Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="margin-left:1%; margin-right:1%">
@@ -73,7 +86,7 @@
     <div class="container">
         @RenderBody()
     </div>
-    <footer class="footer mt-auto py-3 bg-light ">
+    <footer class="footer mt-auto py-3 bg-light">
         <div class="container text-center">
             <span class="text-muted">© 2024 JavaCoders. All rights reserved.</span>
         </div>

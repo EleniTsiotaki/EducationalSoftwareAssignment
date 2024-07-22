@@ -37,27 +37,34 @@
             font-size: 1.1rem;
             color: #888;
         }
+
+    .chart-container {
+        border: 1px solid #495057;
+        border-radius: 0.25rem;
+        padding: 1rem;
+        background-color: #495057;
+        margin-bottom: 1rem;
+    }
+
+        .chart-container canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <body class="bg-dark text-white">
-
-    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;"> @ViewData["Title"]</header>
+    <header style="margin-top:7%; margin-bottom:3%; text-align: center; font-size: 40px; color: #fff4e6;">@ViewData["Title"]</header>
     <div class="container mt-5">
         <div class="card">
             <div class="profile-header">
-
                 <h2>@Model.Username.Split('@')[0]</h2>
-
             </div>
             <div class="profile-info">
                 <div>
                     <label>Email:</label>
                     <div class="value">@Model.Username</div>
                 </div>
-                @* <div>
-                <label>LEVEL</label>
-                <div class="value">Beginner</div>
-                </div> *@
                 <div>
                     <label>Succeeded courses:</label>
                     <div class="value">@Model.SucceededTests</div>
@@ -104,6 +111,81 @@
                 </div>
             </div>
         </div>
+        <br />
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="chart-container">
+                    <h4>Course Distribution</h4>
+                    <canvas id="coursePieChart"></canvas>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="chart-container">
+                    <h4>Average Grades</h4>
+                    <canvas id="intermediatePieChart"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Course Distribution Pie Chart
+        var ctx1 = document.getElementById('coursePieChart').getContext('2d');
+        var coursePieChart = new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['Succeeded Tests', 'Failed Tests'],
+                datasets: [{
+                    data: [@Model.SucceededTests, @Model.FailedTests],
+                    backgroundColor: ['#00b386', '#ff3333']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Average Grade per Level Pie Chart
+        var ctx3 = document.getElementById('intermediatePieChart').getContext('2d');
+        var intermediatePieChart = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Beginner', 'Intermediate', 'Advanced'],
+                datasets: [{
+                    data: [@Model.BeginnerAverage, @Model.IntermediateAverage, @Model.AdvancedAverage],
+                    backgroundColor: ['#00cccc', '#e68a00', '#3377ff']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
     <br />
 </body>

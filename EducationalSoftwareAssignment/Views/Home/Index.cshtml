@@ -1,34 +1,157 @@
 ﻿@{
-    ViewData["Title"] = "Αρχική";
+    ViewData["Title"] = "Home";
 }
-<body class="bg-dark text-white">
-<div class="jumbotron text-center" style="padding-bottom:20px; padding-top: 100px;">
-    <h1 class="display-4">Καλωσήρθατε στο JavaCoders</h1>
-    <p class="lead">Μάθετε Java με διαδραστικά μαθήματα και ασκήσεις.</p>
-    <hr class="my-4">
-    <p>Ξεκινήστε την εκμάθησή σας τώρα.</p>
-    <br />
-        <a class="btn btn-primary btn-lg" href="/Identity/Account/Login" role="button">Ξεκινήστε</a>
-</div>
-<br />
 
-<div class="container" style="padding-bottom:100px" >
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Εισαγωγή στη Java</h2>
-            <p>Μάθετε τις βασικές έννοιες της Java και γιατί είναι τόσο δημοφιλής.</p>
-            <a class="btn btn-secondary" href="/Home/Introduction" role="button">Μάθετε περισσότερα</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - JavaCoders</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background color */
+            color: #333; /* Dark text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #343a40;
+            padding: 1rem 0;
+        }
+
+        .home-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .welcome-section {
+            background-color: #fff;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .welcome-section h2 {
+            font-size: 2rem;
+            color: #5a6268;
+        }
+
+        .welcome-text {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: #0056b3;
+            border-color: #004a99;
+        }
+
+        .info-section {
+            background-color: #fff;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .info-section h2 {
+            font-size: 2rem;
+            color: #5a6268;
+        }
+
+        .info-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .info-item {
+            flex: 1 1 calc(33.333% - 1rem);
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-item i {
+            font-size: 2rem;
+            color: #007bff;
+        }
+
+        .info-item h4 {
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
+            color: #5a6268;
+        }
+
+        .info-item p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>@ViewData["Title"] - JavaCoders</header>
+
+    <div class="home-container">
+        <div class="welcome-section">
+            <h2>Welcome to JavaCoders</h2>
+            <p class="welcome-text">Explore a variety of courses designed to enhance your skills and knowledge on Java language.</p>
+            <a class="btn btn-primary" href="/Identity/Account/Register">Start</a>
         </div>
-        <div class="col-md-4">
-            <h2>Βασικές Έννοιες</h2>
-            <p>Εξερευνήστε τις βασικές έννοιες προγραμματισμού στη Java όπως μεταβλητές, τύποι δεδομένων, και συναρτήσεις.</p>
-            <a class="btn btn-secondary" href="/Home/BasicConcepts" role="button">Μάθετε περισσότερα</a>
-        </div>
-        <div class="col-md-4">
-            <h2>Προχωρημένες Τεχνικές</h2>
-            <p>Ανακαλύψτε πιο σύνθετες τεχνικές όπως ασύγχρονες λειτουργίες, αντικείμενα και χειραγώγηση του DOM.</p>
-            <a class="btn btn-secondary" href="/Home/AdvancedTechniques" role="button">Μάθετε περισσότερα</a>
+
+        <div class="info-section">
+            <h2>Why Choose Us?</h2>
+            <div class="info-items">
+                <div class="info-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Step-by-Step Learning</h4>
+                    <p>Start from basics and move to more advanced concepts</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>Flexible Learning</h4>
+                    <p>Access courses anytime, anywhere, and at your own pace.</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Certification</h4>
+                    <p>Receive certificates upon course completion to showcase your skills.</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </body>
+</html>

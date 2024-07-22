@@ -22,6 +22,40 @@
         .container {
             text-align: center;
         }
+
+        .question-block {
+            padding: 10px;
+            margin: 10px auto;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: #333;
+            width: 80%;
+            max-width: 600px;
+        }
+
+            .question-block p {
+                margin: 0;
+                font-size: 1rem;
+                color: #ccc;
+                text-align: left;
+                padding-left: 15px;
+            }
+
+        .custom-control {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #ccc;
+            padding-left: 15px;
+        }
+
+        .custom-control-input {
+            margin-right: 8px;
+        }
+
+        .custom-control-label {
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body class="bg-dark text-white">
@@ -31,93 +65,107 @@
         <div id="timer">Time: <span id="time-elapsed">0:00</span></div>
         <form id="quizForm" class="mt-5">
             <div class="form-group">
-                <p>1. A constructor has the same name as the class and does not have a return type.</p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question1" value="True">
-                    <label class="custom-control-label">True</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question1" value="False">
-                    <label class="custom-control-label">False</label>
+                <div class="question-block">
+
+                    <p>1. A constructor has the same name as the class and does not have a return type.</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question1" value="True">
+                        <label class="custom-control-label">True</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question1" value="False">
+                        <label class="custom-control-label">False</label>
+                    </div>
                 </div>
 
-                <p>2. Multiple Choice: Which of the following keywords is used to create an object in Java?</p>
-                <div class="custom-control custom-radio ">
-                    <input type="radio" class="custom-control-input" name="question2" value="A">
-                    <label class="custom-control-label">class</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="B">
-                    <label class="custom-control-label">new</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="C">
-                    <label class="custom-control-label">object</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question2" value="D">
-                    <label class="custom-control-label">create</label>
+                <div class="question-block">
+
+                    <p>2. Multiple Choice: Which of the following keywords is used to create an object in Java?</p>
+                    <div class="custom-control custom-radio ">
+                        <input type="radio" class="custom-control-input" name="question2" value="A">
+                        <label class="custom-control-label">class</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question2" value="B">
+                        <label class="custom-control-label">new</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question2" value="C">
+                        <label class="custom-control-label">object</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question2" value="D">
+                        <label class="custom-control-label">create</label>
+                    </div>
                 </div>
 
-                <p>3. Multiple Choice: What will be the output of the following code?
-                    class Animal {
-                        String name;
-                        Animal(String n) {
-                            name = n;
+                <div class="question-block">
+
+                    <p>3. Multiple Choice: What will be the output of the following code?
+                        class Animal {
+                            String name;
+                            Animal(String n) {
+                                name = n;
+                            }
                         }
-                    }
-                    public class Test {
-                        public static void main(String[] args) {
-                            Animal dog = new Animal("Buddy");
-                            System.out.println(dog.name);
+                        public class Test {
+                            public static void main(String[] args) {
+                                Animal dog = new Animal("Buddy");
+                                System.out.println(dog.name);
+                            }
                         }
-                    }
-                </p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="A">
-                    <label class="custom-control-label">null</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="B">
-                    <label class="custom-control-label">Buddy</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="C">
-                    <label class="custom-control-label">Error</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="D">
-                    <label class="custom-control-label">Animal</label>
-                </div>
-
-                <p>4. True/False: A method can be overloaded by changing the return type alone.</p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="True">
-                    <label class="custom-control-label">True</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question4" value="False">
-                    <label class="custom-control-label">False</label>
+                    </p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="A">
+                        <label class="custom-control-label">null</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="B">
+                        <label class="custom-control-label">Buddy</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="C">
+                        <label class="custom-control-label">Error</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="D">
+                        <label class="custom-control-label">Animal</label>
+                    </div>
                 </div>
 
-                <p>5. Multiple Choice: Which of the following statements about constructors is true?</p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question5" value="A">
-                    <label class="custom-control-label">A class can have only one constructor.</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question5" value="B">
-                    <label class="custom-control-label">Constructors can have different names as long as they are unique. </label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question5" value="C">
-                    <label class="custom-control-label">Constructors are called when an object is created.</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question5" value="D">
-                    <label class="custom-control-label">Constructors cannot take parameters.</label>
+                <div class="question-block">
+
+                    <p>4. True/False: A method can be overloaded by changing the return type alone.</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question4" value="True">
+                        <label class="custom-control-label">True</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question4" value="False">
+                        <label class="custom-control-label">False</label>
+                    </div>
                 </div>
 
+                <div class="question-block">
+
+                    <p>5. Multiple Choice: Which of the following statements about constructors is true?</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question5" value="A">
+                        <label class="custom-control-label">A class can have only one constructor.</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question5" value="B">
+                        <label class="custom-control-label">Constructors can have different names as long as they are unique. </label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question5" value="C">
+                        <label class="custom-control-label">Constructors are called when an object is created.</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question5" value="D">
+                        <label class="custom-control-label">Constructors cannot take parameters.</label>
+                    </div>
+                </div>
             </div>
             <br />
             <button id="grade-quiz-btn" type="button" class="btn btn-success" style="display:none;" onclick="gradeQuiz()">Grade Quiz</button>
@@ -223,13 +271,8 @@
                 });
 
                 if (response.ok) {
-                    alert('Quiz graded successfully!');
-                    // Optionally, update UI to show that the test is completed or unlock Test12
-                    // Example: Reload page or update UI elements
-                } else {
-                    alert('Failed to save the quiz time and score.');
+                    alert('Not all answers are correct. Try again!');
                 }
-                alert('Not all answers are correct. The quiz result will not be saved.');
             }
 
         }

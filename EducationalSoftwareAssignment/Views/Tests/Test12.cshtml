@@ -19,8 +19,46 @@
             text-align: center;
         }
 
+        #quizForm {
+            display: none;
+        }
+
         .container {
             text-align: center;
+        }
+
+        .question-block {
+            padding: 10px;
+            margin: 10px auto;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: #333;
+            width: 80%; 
+            max-width: 600px;
+        }
+
+            .question-block p {
+                margin: 0;
+                font-size: 1rem;
+                color: #ccc;
+                text-align: left; 
+                padding-left: 15px; 
+            }
+
+        .custom-control {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #ccc;
+            padding-left: 15px;
+        }
+
+        .custom-control-input {
+            margin-right: 8px;
+        }
+
+        .custom-control-label {
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -31,79 +69,91 @@
         <div id="timer">Time: <span id="time-elapsed">0:00</span></div>
         <form id="quizForm" class="mt-5">
             <div class="form-group">
-                <p>1. The switch statement can evaluate both integer and string expressions.</p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question1" value="True">
-                    <label class="custom-control-label">True</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question1" value="False">
-                    <label class="custom-control-label">False</label>
+                <div class="question-block">
+
+                    <p>1. The switch statement can evaluate both integer and string expressions.</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question1" value="True">
+                        <label class="custom-control-label">True</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question1" value="False">
+                        <label class="custom-control-label">False</label>
+                    </div>
                 </div>
 
-                <p>
-                    2. What will be the output of the following code?
+                <div class="question-block">
 
-                    int i = 0;
-                    while (i < 5) {
-                    System.out.println(i);
-                    i++;
-                    }
+                    <p>
+                        2. What will be the output of the following code?
 
-                </p>
-                <div class="custom-control custom-radio ">
-                    <input type="radio" class="custom-control-input" name="question2" value="A">
-                    <label class="custom-control-label">1 2 3 4 5</label>
+                        int i = 0;
+                        while (i < 5) {
+                        System.out.println(i);
+                        i++;
+                        }
+
+                    </p>
+                    <div class="custom-control custom-radio ">
+                        <input type="radio" class="custom-control-input" name="question2" value="A">
+                        <label class="custom-control-label">1 2 3 4 5</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question2" value="B">
+                        <label class="custom-control-label">0 1 2 3 4</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question2" value="C">
+                        <label class="custom-control-label">0 1 2 3 4 5</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question2" value="D">
+                        <label class="custom-control-label">1 2 3 4</label>
+                    </div>
+
                 </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="B">
-                    <label class="custom-control-label">0 1 2 3 4</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question2" value="C">
-                    <label class="custom-control-label">0 1 2 3 4 5</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question2" value="D">
-                    <label class="custom-control-label">1 2 3 4</label>
+                <div class="question-block">
+
+                    <p>3. The break statement can be used to exit from a loop prematurely.</p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="True">
+                        <label class="custom-control-label">True</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question3" value="False">
+                        <label class="custom-control-label">False</label>
+                    </div>
                 </div>
 
-                <p>3. The break statement can be used to exit from a loop prematurely.</p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="True">
-                    <label class="custom-control-label">True</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question3" value="False">
-                    <label class="custom-control-label">False</label>
-                </div>
+                <div class="question-block">
 
-                <p>
-                    4. What will be the output of the following code?
+                    <p>
+                        4. What will be the output of the following code?
 
-                    for (int i = 0; i < 3; i++) {
-                    if (i == 1) {
-                    continue;
-                    }
-                    System.out.print(i);
-                    }
+                        for (int i = 0; i < 3; i++) {
+                        if (i == 1) {
+                        continue;
+                        }
+                        System.out.print(i);
+                        }
 
-                </p>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="A">
-                    <label class="custom-control-label">012</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="B">
-                    <label class="custom-control-label">02</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="question4" value="C">
-                    <label class="custom-control-label">01</label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                    <input type="radio" class="custom-control-input" name="question4" value="D">
-                    <label class="custom-control-label">23</label>
+                    </p>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question4" value="A">
+                        <label class="custom-control-label">012</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question4" value="B">
+                        <label class="custom-control-label">02</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="question4" value="C">
+                        <label class="custom-control-label">01</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                        <input type="radio" class="custom-control-input" name="question4" value="D">
+                        <label class="custom-control-label">23</label>
+                    </div>
                 </div>
 
             </div>
@@ -209,14 +259,7 @@
                     body: JSON.stringify({ TestId: testId, Score: score, ElapsedTime: `${Math.floor(elapsedTime / 60)}:${elapsedTime % 60}`, Answer1: answer1, Answer2: answer2, Answer3: answer3, Answer4: answer4, Answer5: answer5, IsCorrect: 0 })
                 });
 
-                if (response.ok) {
-                    alert('Quiz graded successfully!');
-                    // Optionally, update UI to show that the test is completed or unlock Test12
-                    // Example: Reload page or update UI elements
-                } else {
-                    alert('Failed to save the quiz time and score.');
-                }
-                alert('Not all answers are correct. The quiz result will not be saved.');
+                alert('Not all answers are correct. Try again!');
             }
             
         }
