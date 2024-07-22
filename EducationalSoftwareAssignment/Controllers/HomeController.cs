@@ -171,8 +171,8 @@ namespace EducationalSoftwareAssignment.Controllers
                 progress.AdvancedTests = advancedTests;
                 progress.BeginnerTests = beginnerTests;
                 progress.BeginnerAverage = beginnerAverage;
-                progress.IntermediateTests = intermediateTests;
-                progress.AdvancedTests = advancedTests;
+                progress.IntermediateAverage = intermediateAverage;
+                progress.AdvancedAverage = advancedAverage;
                 progress.DateTime = DateTime.Now;
 
                 _context.Progress.Update(progress);
