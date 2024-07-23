@@ -419,38 +419,7 @@
                 }
             }
 
-            async function fetchUnlockStatuses(username) {
-                const response = await fetch(`/api/UnlockStatus/${username}`);
-                const unlockStatuses = await response.json();
-
-                unlockStatuses.forEach(status => {
-                    const courseLink = document.getElementById(`course2`);
-                    const testLink = document.getElementById(`test2`);
-
-                    if (status.Unlocked === 1) {
-                        if (courseLink) {
-                            courseLink.classList.remove('locked');
-                            courseLink.innerHTML = courseLink.innerHTML.replace('<i class="fa fa-lock"></i>', '');
-                        }
-                        if (testLink) {
-                            testLink.classList.remove('locked');
-                            testLink.innerHTML = testLink.innerHTML.replace('<i class="fa fa-lock" style="color:darkgreen"></i>', '');
-                        }
-                    } else {
-                        if (courseLink) {
-                            courseLink.classList.add('locked');
-                        }
-                        if (testLink) {
-                            testLink.classList.add('locked');
-                        }
-                    }
-                });
-            }
-
-            document.addEventListener('DOMContentLoaded', () => {
-                // Use Razor syntax to include the user ID
-                fetchUnlockStatuses(username);
-            });
+            
             
     </script>
 </body>
