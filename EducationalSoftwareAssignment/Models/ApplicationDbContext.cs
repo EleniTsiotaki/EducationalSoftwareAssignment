@@ -11,6 +11,7 @@ namespace EducationalSoftwareAssignment.Models
         public DbSet<Test> Tests { get; set; }
         public DbSet<Statistics> Statistics { get; set; }
         public DbSet<Progress> Progress { get; set; }
+        public DbSet<LockedOrUnlocked> LockedOrUnlocked { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration)
             : base(options)

@@ -27,7 +27,48 @@ namespace EducationalSoftwareAssignment.Controllers
             var userTests = _context.Statistics
                                    .Where(t => t.Username == username)
                                    .ToList();
-            return View("Courses", userTests); // Pass userTests data to Courses.cshtml view
+
+            var userTestCombinations = _context.Statistics
+                                          .GroupBy(s => new { s.Username, s.Test_Id })
+                                          .Select(g => new { g.Key.Username, g.Key.Test_Id })
+                                          .ToList();
+
+            foreach (var i in userTestCombinations)
+            {
+                // Check if there exists any correct test entry for this user and test combination
+                int isUnlocked = _context.Statistics
+                                         .Any(s => s.Username == i.Username && s.Test_Id == i.Test_Id && s.IsCorrect == 1) ? 1 : 0;
+
+                // Find or create the corresponding LockedOrUnlocked entry
+                var lockedOrUnlockedEntry = _context.LockedOrUnlocked
+                                                   .FirstOrDefault(l => l.Username == i.Username && l.Test_Id == i.Test_Id);
+
+                if (lockedOrUnlockedEntry == null)
+                {
+                    // Create new entry if it doesn't exist
+                    lockedOrUnlockedEntry = new LockedOrUnlocked
+                    {
+                        Username = i.Username,
+                        Test_Id = i.Test_Id,
+                        Unlocked = isUnlocked
+                    };
+                    _context.LockedOrUnlocked.Add(lockedOrUnlockedEntry);
+                }
+                else
+                {
+                    // Update existing entry
+                    lockedOrUnlockedEntry.Unlocked = isUnlocked;
+                }
+                
+            }
+            _context.SaveChanges();
+            // Save changes to the database
+            var lockedOrUnlockedItems = _context.LockedOrUnlocked
+                                        .Where(l => l.Username == username)
+                                        .ToList(); // This should be IEnumerable<LockedOrUnlocked>
+
+
+            return View("Courses", lockedOrUnlockedItems); // Pass userTests data to Courses.cshtml view
         }
 
         public IActionResult Index()

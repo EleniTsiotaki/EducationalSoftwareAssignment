@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model  IEnumerable<LockedOrUnlocked>
 @{
     ViewData["Title"] = "Courses";
 }
@@ -147,15 +145,14 @@
         margin-top: 0.5rem;
     }
 
-    /*a[id^="course"]:not([id="course1"]),
-    a[id^="test"]:not([id="test1"]) {
+    .locked {
         cursor: not-allowed; /* Change cursor to indicate link is disabled */
         pointer-events: none; /* Disable pointer events */
         color: #999; /* Example color for disabled links */
         text-decoration: none; /* Remove underline */
         opacity: 0.6; /* Reduce opacity to indicate disabled state */
         /* Add other specific styles as needed */
-    }*/
+    }
 
 </style>
 
@@ -202,12 +199,32 @@
             <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" id="myDropdown1">
                 <a class="dropdown-item" href="/Courses/Course11" id="course1">Module 1</a>
                 <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test11" id="test1">Test 1 </a>
-                <a class="dropdown-item" href="/Courses/Course12" id="course2">Module 2 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test12" id="test2">Test 2 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course13" id="course3">Module 3 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test13" id="test3">Test 3 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test14" id="test4">Final Test <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                  
+                 @foreach (var item in Model)
+                {
+                    var unlockedClass = item.Unlocked == 1 ? "unlocked" : "locked";
+                    var faLock = item.Unlocked == 1 ? "" : "fa fa-lock";
+
+                    if (item.Test_Id == 1)
+                    {
+                        <a class="dropdown-item @unlockedClass" href="/Courses/Course12" id="course2">Module 2 <i class="@faLock"></i></a>
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test12" id="test2">Test 2 <i class="@faLock" style="color:darkgreen"></i></a>
+                        continue;
+                    }
+                    if (item.Test_Id == 2)
+                    {
+                        <a class="dropdown-item @unlockedClass" href="/Courses/Course13" id="course3">Module 3 <i class="@faLock"></i></a>
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test13" id="test3">Test 3 <i class="@faLock" style="color:darkgreen"></i></a>
+                        continue;
+                    }
+                    if (item.Test_Id == 3)
+                    {
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test14" id="test4">Final Test <i class="@faLock" style="color:darkgreen"></i></a>
+                    }
+                    ;
+                }
             </div>
+            
         </div>
     </div>
 
@@ -247,13 +264,32 @@
                 Select a Course
             </button>
             <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" id="myDropdown2">
-                <a class="dropdown-item" href="/Courses/Course21" id="course5">Module 1 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test21" id="test5">Test 1 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course22" id="course6">Module 2 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test22" id="test6">Test 2 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course23" id="course7">Module 3 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test23" id="test7">Test 3 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test24" id="test8">Final Test <i class="fa fa-lock" style="color:darkgreen"></i></a>
+                @foreach (var item in Model)
+                {
+                    var unlockedClass = item.Unlocked == 1 ? "unlocked" : "locked";
+                    var faLock = item.Unlocked == 1 ? "" : "fa fa-lock";
+
+                    if(item.Test_Id == 4)
+                    {
+                        <a class="dropdown-item @unlockedClass" href="/Courses/Course21" id="course5">Module 1 <i class="@faLock"></i></a>
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test21" id="test5">Test 1 <i class="@faLock" style="color:darkgreen"></i></a>
+                    }
+                    if (item.Test_Id == 5)
+                    {
+                        <a class="dropdown-item @unlockedClass" href="/Courses/Course22" id="course6">Module 2 <i class="@faLock"></i></a>
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test22" id="test6">Test 2 <i class="@faLock" style="color:darkgreen"></i></a>
+                    }
+                    if (item.Test_Id == 6)
+                    {
+                        <a class="dropdown-item @unlockedClass" href="/Courses/Course23" id="course7">Module 3 <i class="@faLock"></i></a>
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test23" id="test7">Test 3 <i class="@faLock" style="color:darkgreen"></i></a>
+                    }
+                    if (item.Test_Id == 7)
+                    {
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test24" id="test8">Final Test <i class="@faLock" style="color:darkgreen"></i></a>
+                    }
+                    
+                }
             </div>
         </div>
     </div>
@@ -293,13 +329,33 @@
                 Select a Course
             </button>
             <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" id="myDropdown3">
-                <a class="dropdown-item" href="/Courses/Course31" id="course9">Module 1 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test31" id="test9">Test 1 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course32" id="course10">Module 2 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test32" id="test10">Test 2 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" href="/Courses/Course33" id="course11"> Module 3 <i class="fa fa-lock"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test33" id="test11">Test 3 <i class="fa fa-lock" style="color:darkgreen"></i></a>
-                <a class="dropdown-item" style="color:darkgreen" href="/Tests/Test34" id="test12">Final Test <i class="fa fa-lock" style="color:darkgreen"></i></a>
+
+                 @foreach (var item in Model)
+                 {
+                    var unlockedClass = item.Unlocked == 1 ? "unlocked" : "locked";
+                    var faLock = item.Unlocked == 1 ? "" : "fa fa-lock";
+
+                    if(item.Test_Id == 8)
+                    {
+                        <a class="dropdown-item @unlockedClass" href="/Courses/Course31" id="course9">Module 1 <i class="@faLock"></i></a>
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test31" id="test9">Test 1 <i class="@faLock" style="color:darkgreen"></i></a>
+                    }
+                    if (item.Test_Id == 9)
+                    {
+
+                        <a class="dropdown-item @unlockedClass" href="/Courses/Course32" id="course10">Module 2 <i class="@faLock"></i></a>
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test32" id="test10">Test 2 <i class="@faLock" style="color:darkgreen"></i></a>
+                    }
+                    if (item.Test_Id == 10)
+                    {
+                        <a class="dropdown-item @unlockedClass" href="/Courses/Course33" id="course11"> Module 3 <i class="@faLock"></i></a>
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test33" id="test11">Test 3 <i class="@faLock" style="color:darkgreen"></i></a>
+                    }
+                    if (item.Test_Id == 11)
+                    {
+                        <a class="dropdown-item @unlockedClass" style="color:darkgreen" href="/Tests/Test34" id="test12">Final Test <i class="@faLock" style="color:darkgreen"></i></a>
+                    }
+                  }
             </div>
         </div>
 
@@ -363,6 +419,38 @@
                 }
             }
 
+            async function fetchUnlockStatuses(username) {
+                const response = await fetch(`/api/UnlockStatus/${username}`);
+                const unlockStatuses = await response.json();
+
+                unlockStatuses.forEach(status => {
+                    const courseLink = document.getElementById(`course2`);
+                    const testLink = document.getElementById(`test2`);
+
+                    if (status.Unlocked === 1) {
+                        if (courseLink) {
+                            courseLink.classList.remove('locked');
+                            courseLink.innerHTML = courseLink.innerHTML.replace('<i class="fa fa-lock"></i>', '');
+                        }
+                        if (testLink) {
+                            testLink.classList.remove('locked');
+                            testLink.innerHTML = testLink.innerHTML.replace('<i class="fa fa-lock" style="color:darkgreen"></i>', '');
+                        }
+                    } else {
+                        if (courseLink) {
+                            courseLink.classList.add('locked');
+                        }
+                        if (testLink) {
+                            testLink.classList.add('locked');
+                        }
+                    }
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                // Use Razor syntax to include the user ID
+                fetchUnlockStatuses(username);
+            });
             
     </script>
 </body>
