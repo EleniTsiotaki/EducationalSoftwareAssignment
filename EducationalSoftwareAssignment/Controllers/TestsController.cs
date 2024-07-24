@@ -119,9 +119,9 @@ namespace EducationalSoftwareAssignment.Controllers
                                                .Where(s => s.Username == user.UserName)
                                                .ToListAsync();
 
-            // Filter in-memory based on the timer >= "0:10"
+            // Filter in-memory based on the timer >= 30 minutes
             var exerciseToShow = userStatistics
-                                 .Where(s => ConvertTimerToSeconds(s.Timer) >= 10)
+                                 .Where(s => ConvertTimerToMinutes(s.Timer) >= 30)
                                  .Select(s => s.Test_Id)
                                  .FirstOrDefault();
 
@@ -154,14 +154,13 @@ namespace EducationalSoftwareAssignment.Controllers
 
             return View("Index");
         }
-        private int ConvertTimerToSeconds(string timer)
+        private int ConvertTimerToMinutes(string timer)
         {
             var parts = timer.Split(':');
             if (parts.Length == 2)
             {
                 int minutes = int.Parse(parts[0]);
-                int seconds = int.Parse(parts[1]);
-                return (minutes * 60) + seconds;
+                return minutes;
             }
             return 0;
         }
@@ -220,13 +219,6 @@ namespace EducationalSoftwareAssignment.Controllers
         [HttpGet("Test12")]
         public async Task<IActionResult> Test12()
         {
-            /*var test12 = await _context.Tests.FindAsync(12);
-
-            if (test12 == null || !test12.IsUnlocked)
-            {
-                return Unauthorized();  // Or handle accordingly (redirect, return error, etc.)
-            }
-            */
             return View();  // Return the view for Test12
         }
 

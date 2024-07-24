@@ -45,7 +45,7 @@ namespace EducationalSoftwareAssignment.Controllers
                                                .ToListAsync();
 
             var completedTests = userStatistics
-                                 .Where(s => ConvertTimerToSeconds(s.Timer) >= 10)
+                                 .Where(s => ConvertTimerToMinutes(s.Timer) >= 30)
                                  .Select(s => s.Test_Id)
                                  .ToList();
 
@@ -75,14 +75,13 @@ namespace EducationalSoftwareAssignment.Controllers
             return View();
         }
 
-        private int ConvertTimerToSeconds(string timer)
+        private int ConvertTimerToMinutes(string timer)
         {
             var parts = timer.Split(':');
             if (parts.Length == 2)
             {
                 int minutes = int.Parse(parts[0]);
-                int seconds = int.Parse(parts[1]);
-                return (minutes * 60) + seconds;
+                return minutes;
             }
             return 0;
         }
